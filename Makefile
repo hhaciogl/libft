@@ -46,10 +46,10 @@ fclean: clean
 re: fclean all
 
 test: $(NAME) test.c
-	gcc test.c -o $@ -L. -lft -Wextra -Wall -Werror
+	@gcc test.c -o $@ -L. -lft -Wextra -Wall -Werror
 
 run: test
-	@./test | less
+	@./test
 
 norm:
 	@norminette $(C_FILES) libft.h | less
