@@ -1,5 +1,6 @@
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 #include <stddef.h>
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
@@ -170,6 +171,25 @@ static void test_suite_ft_strlen(void)
 	test_case_ft_strlen_empty();
 
 }
+////////////ft_memset//////////////////
+static void test_case_ft_memset_A_4_times(void)
+{
+	char result[] = "hello";
+	char expected[] = "AAAAo";
+	ft_memset(result, 'A', 4);
+	test(strcmp(result,expected) == 0, "ft_memset(result, 'A', 4) should return AAAAo");
+	if(DEBUG)
+		printf(" result: %s\n expected:%s\n", result, expected);
+}
+
+static void test_suite_ft_memset(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+ 	puts("------------------");
+	test_case_ft_memset_A_4_times();
+}
+
 	
 // examples
 // static void test_case_ft_isalpha_4(void)
@@ -198,6 +218,8 @@ int main(void)
     test_suite_ft_isascii();
     test_suite_ft_isprint();
 	test_suite_ft_strlen();
+	test_suite_ft_memset();
+	test_suite_ft_bzero();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
