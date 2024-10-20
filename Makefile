@@ -29,7 +29,7 @@ OBJECT_FILES := $(patsubst %.c,%.o,$(C_FILES))
 NAME := libft.a
 
 # RULES
-all: norm run
+all: run
 
 $(NAME): $(OBJECT_FILES)
 	ar src $@ $^
@@ -52,6 +52,6 @@ run: test
 	@./test | less
 
 norm:
-	norminette $(C_FILES) libft.h | less
+	@norminette $(C_FILES) libft.h | less
 
 .PHONY: clean all re run fclean norm
