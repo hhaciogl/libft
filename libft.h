@@ -6,13 +6,12 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:44:33 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/20 14:08:34 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/20 18:40:03 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-int	ft_isalpha(void);
-int	ft_isdigit(void);
+int	ft_isalpha(int c);
 #endif
