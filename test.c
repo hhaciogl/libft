@@ -32,7 +32,9 @@ static void test_case_ft_isalpha_4(void)
 }
 static void test_suite_ft_isalpha(void)
 {
+    puts("");
 	printf("%s:\n", __func__);
+    puts("------------------");
 	test_case_ft_isalpha_a();
 	test_case_ft_isalpha_4();
 	
@@ -57,12 +59,14 @@ static void test_case_ft_isdigit_a(void)
 }
 static void test_suite_ft_isdigit(void)
 {
+	puts("");
 	printf("%s:\n", __func__);
+    puts("------------------");
 	test_case_ft_isdigit_8();
 	test_case_ft_isdigit_a();
 
 }
-
+////////////ft_isalnum/////////////////
 static void test_case_ft_isalnum_forward_slash(void)
 {
 	int result = ft_isalnum('/');
@@ -71,14 +75,40 @@ static void test_case_ft_isalnum_forward_slash(void)
 	if(DEBUG)
 		printf(" result: %i\n expected:%i\n", result, expected);
 }
-
 static void test_suite_ft_isalnum(void)
 {
+    puts("");
 	printf("%s:\n", __func__);
+    puts("------------------");
     test_case_ft_isalnum_forward_slash();
     
 }
-
+//////////ft_isascii/////////////////////
+static void test_case_ft_isascii_128(void)
+{
+	int result = ft_isascii(128);
+	int expected = 0;
+	test(ft_isascii(128) == 0, "ft_isascii(128) should return 0");
+	if(DEBUG)
+		printf(" result: %i\n expected:%i\n", result, expected);
+}
+static void test_case_ft_isascii_dot(void)
+{
+	int result = ft_isascii('.');
+	int expected = 1;
+	test(ft_isascii('.') != 0, "ft_isascii('.') should not return 0");
+	if(DEBUG)
+		printf(" result: %i\n expected:%i\n", result, expected);
+}
+static void test_suite_ft_isascii(void)
+{
+    puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+    test_case_ft_isascii_128();
+    test_case_ft_isascii_dot();
+    
+}
 
 
 	
@@ -94,7 +124,9 @@ static void test_suite_ft_isalnum(void)
 
 // static void test_suite_ft_isalpha(void)
 // {
-// 	printf("%s:\n", __func__);
+// 	puts("");
+//	printf("%s:\n", __func__);
+//  puts("------------------");
 // 	test_case_ft_isalpha_empty();
 // 	test_case_ft_isalpha_4();
 // }
@@ -104,6 +136,7 @@ int main(void)
 	test_suite_ft_isalpha();
 	test_suite_ft_isdigit();
     test_suite_ft_isalnum();
+    test_suite_ft_isascii();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
