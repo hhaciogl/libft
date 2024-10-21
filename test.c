@@ -181,7 +181,6 @@ static void test_case_ft_memset_A_4_times(void)
 	if(DEBUG)
 		printf(" result: %s\n expected:%s\n", result, expected);
 }
-
 static void test_suite_ft_memset(void)
 {
 	puts("");
@@ -189,8 +188,46 @@ static void test_suite_ft_memset(void)
  	puts("------------------");
 	test_case_ft_memset_A_4_times();
 }
+////////////ft_bzero///////////////////
+static void test_case_ft_bzero_hello_5(void)
+{
+	char result[] = "hello";
+	ft_bzero(&result, 5);
+	char expected[] = "";
+	test(strcmp(result, expected) == 0, "ft_bzero(\"hello\", 5) should make hello ''");
+	if(DEBUG)
+		printf(" result: [%s]\n expected:[%s]\n", result, expected);
+}
+static void test_suite_ft_bzero(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+ 	puts("------------------");
+	test_case_ft_bzero_hello_5();
+}
+////////////ft_memcpy///////////////
+static void test_case_ft_memcpy_empty_hello_6(void)
+{
+	char result[6];
+	char *hello = "hello";
+	memcpy(result, hello, 6);
+	char *expected = "hello";
+	test(strcmp(result, hello) == 0, "ft_memcpy([], hello, 6) should fill with hello");
+	if(DEBUG)
+		printf(" result: [%s]\n expected:[%s]\n", result, expected);
+}
 
-	
+static void test_suite_ft_memcpy(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+ 	puts("------------------");
+	test_case_ft_memcpy_empty_hello_6();
+}
+
+
+
+
 // examples
 // static void test_case_ft_isalpha_4(void)
 // {
@@ -220,6 +257,7 @@ int main(void)
 	test_suite_ft_strlen();
 	test_suite_ft_memset();
 	test_suite_ft_bzero();
+	test_suite_ft_memcpy();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
