@@ -252,7 +252,24 @@ static void test_suite_ft_memmove(void)
 	test_case_ft_memmove_non_overlap();
 	test_case_ft_memmove_overlap();
 }
+///////////ft_strlcpy/////////////
+static void test_case_ft_strlcpy_empty_hello_6(void)
+{
+	char result[10];
+	size_t returned = ft_strlcpy(result, "hello", 6);
+	char *expected = "hello";
+	test(strcmp(result, expected)==0 && returned == 5 , "ft_strlcpy(result, \"hello\", 6) should return 5");
+	if(DEBUG)
+		printf(" result: %s\n expected:%s\n returned:%zu\n", result, expected, returned);
+}
 
+static void test_suite_ft_strlcpy(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+ 	puts("------------------");
+	test_case_ft_strlcpy_empty_hello_6();
+}
 
 
 // examples
@@ -286,6 +303,7 @@ int main(void)
 	test_suite_ft_bzero();
 	test_suite_ft_memcpy();
 	test_suite_ft_memmove();
+	test_suite_ft_strlcpy();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
