@@ -224,7 +224,34 @@ static void test_suite_ft_memcpy(void)
  	puts("------------------");
 	test_case_ft_memcpy_empty_hello_6();
 }
+//////////ft_memmove////////////////
+static void test_case_ft_memmove_non_overlap(void)
+{
+	char result[6];
+	ft_memmove(result, "hello", 6);
+	char *expected = "hello";
+	test(strcmp(result, expected) == 0, "ft_memmove([], \"hello\", 6) should fill [] with hello]");
+	if(DEBUG)
+		printf(" result: %s\n expected:%s\n", result, expected);
+}
+static void test_case_ft_memmove_overlap(void)
+{
+	char result[14] = "Hello, World!";
+	ft_memmove(result+4, result+7, 6);
+	char *expected = "HellWorld!ld!";
+	test(strcmp(result, expected) == 0, "ft_memmove(\"o, World!\", \"World!\", 6) should change result to World!");
+	if(DEBUG)
+		printf(" result: %s\n expected:%s\n", result, expected);
 
+}
+static void test_suite_ft_memmove(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+ 	puts("------------------");
+	test_case_ft_memmove_non_overlap();
+	test_case_ft_memmove_overlap();
+}
 
 
 
@@ -258,6 +285,7 @@ int main(void)
 	test_suite_ft_memset();
 	test_suite_ft_bzero();
 	test_suite_ft_memcpy();
+	test_suite_ft_memmove();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
