@@ -210,7 +210,7 @@ static void test_case_ft_memcpy_empty_hello_6(void)
 {
 	char result[6];
 	char *hello = "hello";
-	memcpy(result, hello, 6);
+	ft_memcpy(result, hello, 6);
 	char *expected = "hello";
 	test(strcmp(result, hello) == 0, "ft_memcpy([], hello, 6) should fill with hello");
 	if(DEBUG)
@@ -258,17 +258,46 @@ static void test_case_ft_strlcpy_empty_hello_6(void)
 	char result[10];
 	size_t returned = ft_strlcpy(result, "hello", 6);
 	char *expected = "hello";
-	test(strcmp(result, expected)==0 && returned == 5 , "ft_strlcpy(result, \"hello\", 6) should return 5");
+	test(strcmp(result, expected)==0 && returned == 5 , "ft_strlcpy([], \"hello\", 6) should return 5");
 	if(DEBUG)
 		printf(" result: %s\n expected:%s\n returned:%zu\n", result, expected, returned);
 }
-
+static void test_case_ft_strlcpy_abc_hello_0(void)
+{
+    char result[10] = "abc";
+	size_t returned = ft_strlcpy(result, "hello", 0);
+	char *expected = "abc";
+	test(strcmp(result, expected)==0 && returned == 5 , "ft_strlcpy(abc, \"hello\", 0) should return 5");
+	if(DEBUG)
+		printf(" result: %s\n expected:%s\n returned:%zu\n", result, expected, returned);
+}
 static void test_suite_ft_strlcpy(void)
 {
 	puts("");
 	printf("%s:\n", __func__);
  	puts("------------------");
 	test_case_ft_strlcpy_empty_hello_6();
+    test_case_ft_strlcpy_abc_hello_0();
+}
+//////////////ft_strlcat////////////////
+static void test_case_ft_strlcat_abc_def_7(void)
+{
+	char dst[7] = "abc";
+    char src[] = "def";
+	size_t returned = ft_strlcat(dst, src, 7);
+    char *expected = "abcdef";
+	test(strcmp(dst, expected) == 0 && returned == 6,
+     "ft_strlcat(abc, def, 7) should return 6");
+	if(DEBUG)
+		printf(" new_dst: %s\n returned:%li\n expected_dst: %s\n", dst, returned, expected);
+}
+
+static void test_suite_ft_strlcat(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+    test_case_ft_strlcat_abc_def_6();
 }
 
 
@@ -304,6 +333,7 @@ int main(void)
 	test_suite_ft_memcpy();
 	test_suite_ft_memmove();
 	test_suite_ft_strlcpy();
+    test_suite_ft_strlcat();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
