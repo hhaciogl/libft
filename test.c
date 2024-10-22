@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
+#include <ctype.h>
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
@@ -387,7 +388,83 @@ static void test_suite_ft_strlcat(void)
 	test_case_ft_strlcat_ab_c_1();
 	test_case_ft_strlcat_ab_c_0();
 }
+////////////ft_toupper/////////////
+static void test_case_ft_toupper_a(void)
+{
+	// params
+	char p1 = 'a';
 
+	char ep1 = 'a';
+
+
+	int returns = ft_toupper(p1);
+	int expected_returns = toupper(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+static void test_case_ft_toupper_A(void)
+{
+	// params
+	char p1 = 'A';
+
+	char ep1 = 'A';
+
+
+	int returns = ft_toupper(p1);
+	int expected_returns = toupper(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+
+static void test_case_ft_toupper_minus_1(void)
+{
+	// params
+	char p1 = -1;
+
+	char ep1 = -1;
+
+
+	int returns = ft_toupper(p1);
+	int expected_returns = toupper(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+static void test_case_ft_toupper_0(void)
+{
+	// params
+	char p1 = 0;
+
+	char ep1 = 0;
+
+
+	int returns = ft_toupper(p1);
+	int expected_returns = toupper(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+
+static void test_suite_ft_toupper(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_toupper_a();
+	test_case_ft_toupper_A();
+	test_case_ft_toupper_minus_1();
+	test_case_ft_toupper_0();
+}
 
 // examples
 // static void test_case_ft_strlcat_ab_c_4(void)
@@ -432,6 +509,7 @@ int main(void)
 	test_suite_ft_memmove();
 	test_suite_ft_strlcpy();
     test_suite_ft_strlcat();
+	test_suite_ft_toupper();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
