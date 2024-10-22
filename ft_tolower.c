@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 19:25:23 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/22 20:08:04 by hhaciogl         ###   ########.fr       */
+/*   Created: 2024/10/22 20:05:21 by hhaciogl          #+#    #+#             */
+/*   Updated: 2024/10/22 20:19:37 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
-	if (ft_isalpha(c) && c >= 'a')
-		return (c - ('a' - 'A'));
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
 	return (c);
 }

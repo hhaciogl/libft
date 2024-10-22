@@ -465,7 +465,66 @@ static void test_suite_ft_toupper(void)
 	test_case_ft_toupper_minus_1();
 	test_case_ft_toupper_0();
 }
+////////////ft_tolower////////////
+static void test_case_ft_tolower_Z(void)
+{
+	// params
+	char p1 = 'Z';
 
+	char ep1 = 'Z';
+
+
+	int returns = ft_tolower(p1);
+	int expected_returns = tolower(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+static void test_case_ft_tolower_0(void)
+{
+	// params
+	char p1 = '\0';
+
+	char ep1 = '\0';
+
+
+	int returns = ft_tolower(p1);
+	int expected_returns = tolower(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+
+static void test_case_ft_tolower_z(void)
+{
+	// params
+	char p1 = 'z';
+
+	char ep1 = 'z';
+
+
+	int returns = ft_tolower(p1);
+	int expected_returns = tolower(ep1);
+
+	test(returns == expected_returns && p1 == ep1, __func__);
+	if(DEBUG)
+		printf("return: %i\nexpected: %i\n", returns, expected_returns);
+		printf(" p1: %c\nep1: %c\n", p1, ep1);
+}
+
+static void test_suite_ft_tolower(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_tolower_Z();
+	test_case_ft_tolower_z();
+	test_case_ft_tolower_0();
+}
 // examples
 // static void test_case_ft_strlcat_ab_c_4(void)
 // {
@@ -510,6 +569,7 @@ int main(void)
 	test_suite_ft_strlcpy();
     test_suite_ft_strlcat();
 	test_suite_ft_toupper();
+	test_suite_ft_tolower();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
