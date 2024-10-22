@@ -35,7 +35,7 @@ $(NAME): $(OBJECT_FILES)
 	ar src $@ $^
 
 $(OBJECT_FILES): %.o: %.c
-	gcc -o $@ -c $< -Wextra -Wall -Werror
+	cc -o $@ -c $< -Wextra -Wall -Werror
 
 clean:
 	rm -f $(OBJECT_FILES)

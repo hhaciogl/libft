@@ -8,7 +8,7 @@
 #define DEBUG 1
 
 
-static void test(int condition, char *msg)
+static void test(int condition, const char *msg)
 {
 	if (condition)
 		printf(GREEN "** [OK] %s \n" RESET, msg);
@@ -280,44 +280,142 @@ static void test_suite_ft_strlcpy(void)
     test_case_ft_strlcpy_abc_hello_0();
 }
 //////////////ft_strlcat////////////////
-static void test_case_ft_strlcat_abc_def_7(void)
+static void test_case_ft_strlcat_ab_c_4(void)
 {
-	char dst[7] = "abc";
-    char src[] = "def";
-	size_t returned = ft_strlcat(dst, src, 7);
-    char *expected = "abcdef";
-	test(strcmp(dst, expected) == 0 && returned == 6,
-     "ft_strlcat(abc, def, 7) should return 6");
+	// params
+	char p1[44] = "ab";
+	char p2[] = "c";
+	size_t p3 = 5;
+	char ep1[44] = "ab";
+	char ep2[] = "c";
+	size_t ep3 = 5;
+
+	size_t returns = ft_strlcat(p1, p2, p3);
+	size_t expected_returns = strlcat(ep1, ep2, ep3);
+
+	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
 	if(DEBUG)
-		printf(" new_dst: %s\n returned:%li\n expected_dst: %s\n", dst, returned, expected);
+		printf("return: %li\nexpected: %li\n", returns, expected_returns);
+		printf(" p1: %s\nep1: %s\n", p1, ep1);
+		printf(" p2: %s\nep2: %s\n", p2, ep2);
+}
+static void test_case_ft_strlcat_ab_c_3(void)
+{
+	// params
+	char p1[4] = "ab";
+	char p2[] = "c";
+	size_t p3 = 3;
+	char ep1[4] = "ab";
+	char ep2[] = "c";
+	size_t ep3 = 3;
+
+	size_t returns = ft_strlcat(p1, p2, p3);
+	size_t expected_returns = strlcat(ep1, ep2, ep3);
+
+	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
+	if(DEBUG)
+		printf("return: %li\nexpected: %li\n", returns, expected_returns);
+		printf(" p1: %s\nep1: %s\n", p1, ep1);
+		printf(" p2: %s\nep2: %s\n", p2, ep2);
+}
+static void test_case_ft_strlcat_ab_c_2(void)
+{
+	// params
+	char p1[4] = "ab";
+	char p2[] = "c";
+	size_t p3 = 2;
+	char ep1[4] = "ab";
+	char ep2[] = "c";
+	size_t ep3 = 2;
+
+	size_t returns = ft_strlcat(p1, p2, p3);
+	size_t expected_returns = strlcat(ep1, ep2, ep3);
+
+	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
+	if(DEBUG)
+		printf("return: %li\nexpected: %li\n", returns, expected_returns);
+		printf(" p1: %s\nep1: %s\n", p1, ep1);
+		printf(" p2: %s\nep2: %s\n", p2, ep2);	
 }
 
+static void test_case_ft_strlcat_ab_c_1(void)
+{
+	// params
+	char p1[4] = "ab";
+	char p2[] = "c";
+	size_t p3 = 1;
+	char ep1[4] = "ab";
+	char ep2[] = "c";
+	size_t ep3 = 1;
+
+	size_t returns = ft_strlcat(p1, p2, p3);
+	size_t expected_returns = strlcat(ep1, ep2, ep3);
+
+	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
+	if(DEBUG)
+		printf("return: %li\nexpected: %li\n", returns, expected_returns);
+		printf(" p1: %s\nep1: %s\n", p1, ep1);
+		printf(" p2: %s\nep2: %s\n", p2, ep2);	
+}
+static void test_case_ft_strlcat_ab_c_0(void)
+{
+	// params
+	char p1[4] = "ab";
+	char p2[] = "c";
+	size_t p3 = 0;
+	char ep1[4] = "ab";
+	char ep2[] = "c";
+	size_t ep3 = 0;
+
+	size_t returns = ft_strlcat(p1, p2, p3);
+	size_t expected_returns = strlcat(ep1, ep2, ep3);
+
+	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
+	if(DEBUG)
+		printf("return: %li\nexpected: %li\n", returns, expected_returns);
+		printf(" p1: %s\nep1: %s\n", p1, ep1);
+		printf(" p2: %s\nep2: %s\n", p2, ep2);	
+}
 static void test_suite_ft_strlcat(void)
 {
 	puts("");
 	printf("%s:\n", __func__);
     puts("------------------");
-    test_case_ft_strlcat_abc_def_6();
+	test_case_ft_strlcat_ab_c_4();
+	test_case_ft_strlcat_ab_c_3();
+	test_case_ft_strlcat_ab_c_2();
+	test_case_ft_strlcat_ab_c_1();
+	test_case_ft_strlcat_ab_c_0();
 }
 
 
 // examples
-// static void test_case_ft_isalpha_4(void)
+// static void test_case_ft_strlcat_ab_c_4(void)
 // {
-// 	int result = ft_isalpha();
-// 	int expected = 0;
-// 	test(ft_isalpha()== 1, "ft_isalpha(4) should return 0");
+// 	// params
+// 	char p1[4] = "ab";
+// 	char p2[] = "c";
+// 	size_t p3 = 4;
+// 	char ep1[4] = "ab";
+// 	char ep2[] = "c";
+// 	size_t ep3 = 4;
+
+// 	size_t returns = ft_strlcat(p1, p2, p3);
+// 	size_t expected_returns = strlcat(ep1, ep2, ep3);
+
+// 	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
 // 	if(DEBUG)
-// 		printf(" result: %i\n expected:%i\n", result, expected);
+// 		printf("return: %li\nexpected: %li\n", returns, expected_returns);
+// 		printf(" p1: %s\nep1: %s\n", p1, ep1);
+// 		printf(" p2: %s\nep2: %s\n", p2, ep2);
 // }
 
-// static void test_suite_ft_isalpha(void)
+// static void test_suite_ft_strlcat(void)
 // {
 // 	puts("");
-//	printf("%s:\n", __func__);
-//  puts("------------------");
-// 	test_case_ft_isalpha_empty();
-// 	test_case_ft_isalpha_4();
+// 	printf("%s:\n", __func__);
+//     puts("------------------");
+// 	test_case_ft_strlcat_ab_c_4();
 // }
 
 int main(void)

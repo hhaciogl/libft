@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 19:43:00 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/22 19:06:01 by hhaciogl         ###   ########.fr       */
+/*   Created: 2024/10/22 12:10:33 by hhaciogl          #+#    #+#             */
+/*   Updated: 2024/10/22 19:09:21 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	len_of_cat;
 
-	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	while (src[i] && i < (size - 1))
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	len_of_cat = dst_len + src_len;
+	if (dstsize == 0)
+		return (src_len);
+	if (dstsize <= dst_len)
+		return (src_len + dstsize);
+	ft_strlcpy(dst + dst_len, src, src_len + 1);
+	dst[dstsize - 1] = '\0';
+	return (len_of_cat);
 }
