@@ -679,6 +679,39 @@ static void test_suite_ft_strncmp(void)
 	test_case_ft_strncmp_a0a_a_3();
 	test_case_ft_strncmp_empty_empty_1();
 }
+//////////ft_memchr//////////////////////
+static void test_case_ft_memchr_abc_c_4(void)
+{
+	//void	*memchr(const void *s, int c, size_t n);
+	// params
+	char ft_p1[4] = "abc";
+	int ft_p2 = 'c';
+	size_t ft_p3 = 4;
+
+
+	char _p1[4] = "abc";
+	char _p2 = 'c';
+	size_t _p3 = 4;
+
+
+	void  *ft_returns = ft_memchr(ft_p1, ft_p2, ft_p3);
+	void *_returns = memchr(_p1, _p2, _p3);
+
+	test(memcmp(ft_returns, _returns, 2) == 0, __func__);
+	if(DEBUG)
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %c\n_p2: %c\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+}
+
+static void test_suite_ft_memchr(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_memchr_abc_c_4();
+}
 
 
 
@@ -731,7 +764,7 @@ int main(void)
 	test_suite_ft_strchr();
 	test_suite_ft_strrchr();
 	test_suite_ft_strncmp();
-
+	test_suite_ft_memchr();
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
 }
