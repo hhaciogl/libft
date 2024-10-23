@@ -41,7 +41,7 @@ clean:
 	rm -f $(OBJECT_FILES)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) test
 
 re: fclean all test
 
