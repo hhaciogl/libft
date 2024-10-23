@@ -14,7 +14,7 @@ C_FILES := \
 	ft_toupper.c \
 	ft_tolower.c \
 	ft_strchr.c \
-	# ft_strrchr.c \
+	ft_strrchr.c \
 	# ft_strncmp.c \
 	# ft_memchr.c \
 	# ft_memcmp.c \

@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:54:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/23 15:37:50 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:54:55 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ char	*ft_strchr(const char *s, int c)
 	size_t	i;
 
 	i = 0;
-	while (s + i)
+	while (s[i])
 	{
-		if (*(s + i) == c)
-			return ((char *)s + i);
+		if (s[i] == c)
+		{
+			return ((char *)&s[i]);
+		}
 		i++;
 	}
-	return (0);
+	return ((char *)s);
 }
