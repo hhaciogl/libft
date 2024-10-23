@@ -474,33 +474,110 @@ static void test_suite_ft_tolower(void)
 	test_case_ft_tolower_Z();
 	test_case_ft_tolower_z();
 }
+///////// ft_strchr /////////////
+static void test_case_ft_strchr_abc_c(void)
+{
+	// params
+	char ft_p1[4] = "abc";
+	char ft_p2 = 'c';
+
+
+	char _p1[4] = "abc";
+	char _p2 = 'c';
+
+
+	char	*ft_returns = ft_strchr(ft_p1, ft_p2);
+	char	*_returns = strchr(_p1, _p2);
+
+	test(strcmp(ft_returns, _returns) == 0 && strcmp(ft_p1, _p1) == 0, __func__);
+	if(DEBUG)
+		printf("ft_return: %s\n _returns: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n   _p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %c\n   _p2: %c\n", ft_p2, _p2);
+}
+
+static void test_case_ft_strchr_12345_1(void)
+{
+		// params
+	char ft_p1[] = "12345";
+	char ft_p2 = '1';
+
+
+	char _p1[] = "12345";
+	char _p2 = '1';
+
+
+	char	*ft_returns = ft_strchr(ft_p1, ft_p2);
+	char	*_returns = strchr(_p1, _p2);
+
+	test(strcmp(ft_returns, _returns) == 0 && strcmp(ft_p1, _p1) == 0, __func__);
+	if(DEBUG)
+		printf("ft_return: %s\n _returns: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n   _p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %c\n   _p2: %c\n", ft_p2, _p2);
+}
+
+static void test_case_ft_strchr_empty_null(void)
+{
+		// params
+	char ft_p1[] = "";
+	char ft_p2 = '\0';
+
+
+	char _p1[] = "";
+	char _p2 = '\0';
+
+
+	char	*ft_returns = ft_strchr(ft_p1, ft_p2);
+	char	*_returns = strchr(_p1, _p2);
+
+	test(strcmp(ft_returns, _returns) == 0 && strcmp(ft_p1, _p1) == 0, __func__);
+	if(DEBUG)
+		printf("ft_return: %s\n _returns: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n   _p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %c\n   _p2: %c\n", ft_p2, _p2);
+}
+
+static void test_suite_ft_strchr(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_strchr_abc_c();
+	test_case_ft_strchr_12345_1();
+	test_case_ft_strchr_empty_null();
+}
+
+
+
 //examples
-// static void test_case_ft_strlcat_ab_c_4(void)
+// static void test_case_ft_strchr_abc_c(void)
 // {
 // 	// params
-// 	char p1[4] = "ab";
-// 	char p2[] = "c";
-// 	size_t p3 = 4;
-// 	char ep1[4] = "ab";
-// 	char ep2[] = "c";
-// 	size_t ep3 = 4;
+// 	char ft_p1[4] = "abc";
+// 	char ft_p2[] = "c";
 
-// 	size_t returns = ft_strlcat(p1, p2, p3);
-// 	size_t expected_returns = strlcat(ep1, ep2, ep3);
 
-// 	test(returns == expected_returns && strcmp(p1, ep1) == 0, __func__);
+// 	char _p1[4] = "abc";
+// 	char _p2[] = "c";
+
+
+// 	char  *ft_returns = ft_strchr(ft_p1, ft_p2);
+// 	char _returns = strchr(_p1, _p2);
+
+// 	test(ft_returns == _returns && strcmp(ft_p1, _p1) == 0, __func__);
 // 	if(DEBUG)
-// 		printf("return: %li\nexpected: %li\n", returns, expected_returns);
-// 		printf(" p1: %s\nep1: %s\n", p1, ep1);
-// 		printf(" p2: %s\nep2: %s\n", p2, ep2);
+// 		printf("ft_return: %s\nexpected: %li\n", ft_returns, _returns);
+// 		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+// 		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
 // }
 
-// static void test_suite_ft_strlcat(void)
+// static void test_suite_ft_strchr(void)
 // {
 // 	puts("");
 // 	printf("%s:\n", __func__);
 //     puts("------------------");
-// 	test_case_ft_strlcat_ab_c_4();
+// 	test_case_ft_strchr_abc_c();
 // }
 
 int main(void)
@@ -519,6 +596,7 @@ int main(void)
     test_suite_ft_strlcat();
 	test_suite_ft_toupper();
 	test_suite_ft_tolower();
+	test_suite_ft_strchr();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
