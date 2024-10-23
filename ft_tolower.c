@@ -5,16 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 20:05:21 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/22 20:19:37 by hhaciogl         ###   ########.fr       */
+/*   Created: 2024/10/23 13:50:27 by hhaciogl          #+#    #+#             */
+/*   Updated: 2024/10/23 14:35:27 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static	int	ft_is_lower(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	return (0);
+}
+
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (!ft_is_lower(c))
 		return (c + ('a' - 'A'));
 	return (c);
 }

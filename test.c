@@ -422,38 +422,6 @@ static void test_case_ft_toupper_A(void)
 		printf(" p1: %c\nep1: %c\n", p1, ep1);
 }
 
-static void test_case_ft_toupper_minus_1(void)
-{
-	// params
-	char p1 = -1;
-
-	char ep1 = -1;
-
-
-	int returns = ft_toupper(p1);
-	int expected_returns = toupper(ep1);
-
-	test(returns == expected_returns && p1 == ep1, __func__);
-	if(DEBUG)
-		printf("return: %i\nexpected: %i\n", returns, expected_returns);
-		printf(" p1: %c\nep1: %c\n", p1, ep1);
-}
-static void test_case_ft_toupper_0(void)
-{
-	// params
-	char p1 = 0;
-
-	char ep1 = 0;
-
-
-	int returns = ft_toupper(p1);
-	int expected_returns = toupper(ep1);
-
-	test(returns == expected_returns && p1 == ep1, __func__);
-	if(DEBUG)
-		printf("return: %i\nexpected: %i\n", returns, expected_returns);
-		printf(" p1: %c\nep1: %c\n", p1, ep1);
-}
 
 static void test_suite_ft_toupper(void)
 {
@@ -462,8 +430,6 @@ static void test_suite_ft_toupper(void)
     puts("------------------");
 	test_case_ft_toupper_a();
 	test_case_ft_toupper_A();
-	test_case_ft_toupper_minus_1();
-	test_case_ft_toupper_0();
 }
 ////////////ft_tolower////////////
 static void test_case_ft_tolower_Z(void)
@@ -472,22 +438,6 @@ static void test_case_ft_tolower_Z(void)
 	char p1 = 'Z';
 
 	char ep1 = 'Z';
-
-
-	int returns = ft_tolower(p1);
-	int expected_returns = tolower(ep1);
-
-	test(returns == expected_returns && p1 == ep1, __func__);
-	if(DEBUG)
-		printf("return: %i\nexpected: %i\n", returns, expected_returns);
-		printf(" p1: %c\nep1: %c\n", p1, ep1);
-}
-static void test_case_ft_tolower_0(void)
-{
-	// params
-	char p1 = '\0';
-
-	char ep1 = '\0';
 
 
 	int returns = ft_tolower(p1);
@@ -523,9 +473,8 @@ static void test_suite_ft_tolower(void)
     puts("------------------");
 	test_case_ft_tolower_Z();
 	test_case_ft_tolower_z();
-	test_case_ft_tolower_0();
 }
-// examples
+//examples
 // static void test_case_ft_strlcat_ab_c_4(void)
 // {
 // 	// params

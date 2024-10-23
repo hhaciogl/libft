@@ -54,4 +54,9 @@ run: test
 norm:
 	@norminette $(C_FILES) libft.h | less
 
-.PHONY: clean all re run fclean norm
+push:
+	git add .
+	git commit -m "update" 
+	git push origin master
+
+.PHONY: clean all re run fclean norm push 
