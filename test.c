@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <string.h>
 #include <stddef.h>
 #include <ctype.h>
 #define GREEN "\033[0;32m"
@@ -581,7 +582,103 @@ static void test_suite_ft_strrchr(void)
     puts("------------------");
 	test_case_ft_strrchr_abc_c();
 }
+///////// ft_strncmp /////////////
+static void test_case_ft_strncmp_abcd_ab_2(void)
+{
+	// params
+	char ft_p1[] = "abcd";
+	char ft_p2[] = "ab";
+	int  ft_p3 = 2;
 
+
+	char _p1[] = "abcd";
+	char _p2[] = "ab";
+	int  _p3 = 2;
+
+	int ft_returns = ft_strncmp(ft_p1, ft_p2, ft_p3);
+	int _returns = strncmp(_p1, _p2, _p3);
+
+	test(ft_returns == _returns, __func__);
+	if(DEBUG)
+		printf("ft_return: %i\nexpected: %i\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+}
+static void test_case_ft_strncmp_a0a_a_2(void)
+{
+	// params
+	char ft_p1[] = {'a','\0','a'};
+	char ft_p2[] = "a";
+	int  ft_p3 = 2;
+
+
+	char _p1[] = {'a','\0','a'};
+	char _p2[] = "a";
+	int  _p3 = 2;
+
+	int ft_returns = ft_strncmp(ft_p1, ft_p2, ft_p3);
+	int _returns = strncmp(_p1, _p2, _p3);
+
+	test(ft_returns == _returns, __func__);
+	if(DEBUG)
+		printf("ft_return: %i\nexpected: %i\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+}
+
+static void test_case_ft_strncmp_a0a_a_3(void)
+{
+	// params
+	char ft_p1[] = {'a','\0','a'};
+	char ft_p2[] = "a";
+	int  ft_p3 = 3;
+
+
+	char _p1[] = {'a','\0','a'};
+	char _p2[] = "a";
+	int  _p3 = 3;
+
+	int ft_returns = ft_strncmp(ft_p1, ft_p2, ft_p3);
+	int _returns = strncmp(_p1, _p2, _p3);
+
+	test(ft_returns == _returns, __func__);
+	if(DEBUG)
+		printf("ft_return: %i\nexpected: %i\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+}
+static void test_case_ft_strncmp_empty_empty_1(void)
+{
+	// params
+	char ft_p1[] = {'a','\0','a'};
+	char ft_p2[] = "a";
+	int  ft_p3 = 3;
+
+
+	char _p1[] = {'a','\0','a'};
+	char _p2[] = "a";
+	int  _p3 = 3;
+
+	int ft_returns = ft_strncmp(ft_p1, ft_p2, ft_p3);
+	int _returns = strncmp(_p1, _p2, _p3);
+
+	test(ft_returns == _returns, __func__);
+	if(DEBUG)
+		printf("ft_return: %i\nexpected: %i\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+}
+
+static void test_suite_ft_strncmp(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_strncmp_abcd_ab_2();
+	test_case_ft_strncmp_a0a_a_2();
+	test_case_ft_strncmp_a0a_a_3();
+	test_case_ft_strncmp_empty_empty_1();
+}
 
 
 
@@ -633,6 +730,7 @@ int main(void)
 	test_suite_ft_tolower();
 	test_suite_ft_strchr();
 	test_suite_ft_strrchr();
+	test_suite_ft_strncmp();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
