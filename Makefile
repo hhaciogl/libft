@@ -32,7 +32,7 @@ NAME := libft.a
 all: run
 
 $(NAME): $(OBJECT_FILES)
-	ar src $@ $^
+	ar src $(NAME) $(OBJECT_FILES)
 
 $(OBJECT_FILES): %.o: %.c
 	cc -o $@ -c $< -Wextra -Wall -Werror
@@ -46,17 +46,17 @@ fclean: clean
 re: fclean all test
 
 test: $(NAME) test.c
-	@gcc test.c -o $@ -L. -lft
+	cc test.c -o test -L. -lft
 
 run: test
-	@./test
-
-norm:
-	@norminette $(C_FILES) libft.h | less
-
-push: norm 
+	./test
+	
+push:
+	set -e
+	clear
+	norminette $(C_FILES) libft.h
 	git add .
 	git commit -m "update" 
 	git push origin master
 
-.PHONY: clean all re run fclean norm push 
+.PHONY: clean all re run fclean push 

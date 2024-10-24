@@ -7,7 +7,7 @@
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
-#define DEBUG 1
+#define DEBUG 0
 
 
 static void test(int condition, const char *msg)
@@ -788,13 +788,13 @@ static void test_case_ft_strnstr_abc_c_1(void)
 {
 	// params
 	char ft_p1[] = "abc";
-	char ft_p2[] = "abc";
-	size_t ft_p3 = 3;
+	char ft_p2[] = "c";
+	size_t ft_p3 = 1;
 
 
 	char _p1[] = "abc";
-	char _p2[] = "b";
-	size_t _p3 = 2;
+	char _p2[] = "c";
+	size_t _p3 = 1;
 
 
 	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
@@ -813,17 +813,208 @@ static void test_case_ft_strnstr_abc_c_1(void)
 	{
 		test(strcmp(ft_returns, _returns) == 0, __func__);
 	}
-	printf("ft_return: %p\nexpected: %p\n", ft_returns, _returns);
-	if(1)
+	printf("ft_return index: %li\nexpected index: %li\n", ft_returns - ft_p1, _returns - _p1);
+	if(DEBUG)
 	{
-		
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
 		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
 		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
 		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
 	}
 
 }
+static void test_case_ft_strnstr_abc_c_3(void)
+{
+	// params
+	char ft_p1[] = "abc";
+	char ft_p2[] = "c";
+	size_t ft_p3 = 3;
 
+
+	char _p1[] = "abc";
+	char _p2[] = "c";
+	size_t _p3 = 3;
+
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+		test(0, __func__);
+		puts("NULL vs non NULL");
+	}
+	else
+	{
+		test(strcmp(ft_returns, _returns) == 0, __func__);
+	}
+	printf("ft_return index: %li\nexpected index: %li\n", ft_returns - ft_p1, _returns - _p1);
+	if (DEBUG)
+	{
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+
+}
+static void test_case_ft_strnstr_abc_c_9(void)
+{
+	// params
+	char ft_p1[] = "abc";
+	char ft_p2[] = "c";
+	size_t ft_p3 = 9;
+
+
+	char _p1[] = "abc";
+	char _p2[] = "c";
+	size_t _p3 = 9;
+	
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+		test(0, __func__);
+		puts("NULL vs non NULL");
+	}
+	else
+	{
+		test(strcmp(ft_returns, _returns) == 0, __func__);
+	}
+	printf("ft_return index: %li\nexpected index: %li\n", ft_returns - ft_p1, _returns - _p1);
+	if(DEBUG || 0)
+	{
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+
+}
+static void test_case_ft_strnstr_abc_bc_2(void)
+{
+	// params
+	char ft_p1[] = "abc";
+	char ft_p2[] = "bc";
+	size_t ft_p3 = 2;
+
+
+	char _p1[] = "abc";
+	char _p2[] = "bc";
+	size_t _p3 = 2;
+
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+		test(0, __func__);
+		puts("NULL vs non NULL");
+	}
+	else
+	{
+		test(strcmp(ft_returns, _returns) == 0, __func__);
+		printf("ft_return index: %li\nexpected index: %li\n", ft_returns - ft_p1, _returns - _p1);
+	}
+
+	if(DEBUG || 1)
+	{
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+}
+static void test_case_ft_strnstr_abcdefgh_efg_6(void)
+{
+	// params
+	char ft_p1[] = "abcdefgh";
+	char ft_p2[] = "efg";
+	size_t ft_p3 = 6;
+
+
+	char _p1[] = "abcdefgh";
+	char _p2[] = "efg";
+	size_t _p3 = 6;
+
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+		test(0, __func__);
+		puts("NULL vs non NULL");
+	}
+	else
+	{
+		test(strcmp(ft_returns, _returns) == 0, __func__);
+		printf("ft_return index: %li\nexpected index: %li\n", ft_returns - ft_p1, _returns - _p1);
+	}
+
+	if(DEBUG || 1)
+	{
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+}
+static void test_case_ft_strnstr_abcdefgh_efg_7(void)
+{
+	// params
+	char ft_p1[] = "see FF your FF return FF now FF";
+	char ft_p2[] = "FF";
+	size_t ft_p3 = ft_strlen(ft_p1);
+
+
+	char _p1[] = "see FF your FF return FF now FF";
+	char _p2[] = "FF";
+	size_t _p3 = ft_p3;
+
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+		test(0, __func__);
+		puts("NULL vs non NULL");
+	}
+	else
+	{
+		test(strcmp(ft_returns, _returns) == 0, __func__);
+		printf("ft_return index: %li\nexpected index: %li\n", ft_returns - ft_p1, _returns - _p1);
+	}
+
+	if(DEBUG || 1)
+	{
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+}
 static void test_suite_ft_strnstr(void)
 {
 	puts("");
@@ -831,6 +1022,12 @@ static void test_suite_ft_strnstr(void)
     puts("------------------");
 	test_case_ft_strnstr_abc_c_0();
 	test_case_ft_strnstr_abc_c_1();
+	test_case_ft_strnstr_abc_c_3();
+	test_case_ft_strnstr_abc_c_9();
+	test_case_ft_strnstr_abc_bc_2();
+	test_case_ft_strnstr_abcdefgh_efg_6();
+	test_case_ft_strnstr_abcdefgh_efg_7();
+
 }
 
 
