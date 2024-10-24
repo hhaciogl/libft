@@ -1029,7 +1029,15 @@ static void test_suite_ft_strnstr(void)
 	test_case_ft_strnstr_abcdefgh_efg_7();
 
 }
+////////////// ft_atoi ////////////////////
 
+static void test_suite_ft_atoi(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_strchr_abc_c();
+}
 
 //examples
 // static void test_case_ft_strchr_abc_c(void)
@@ -1082,7 +1090,8 @@ int main(void)
 	// test_suite_ft_strncmp();
 	// test_suite_ft_memchr();
 	// test_suite_ft_memcmp();
-	test_suite_ft_strnstr();
+	//test_suite_ft_strnstr();
+	test_suite_ft_atoi();
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
 }
