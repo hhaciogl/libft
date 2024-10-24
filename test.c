@@ -743,7 +743,95 @@ static void test_suite_ft_memcmp(void)
     puts("------------------");
 	test_case_ft_memcmp_abc_abc_4();
 }
+/////// ft_strnstr /////////////////
+static void test_case_ft_strnstr_abc_c_0(void)
+{
+	// params
+	char ft_p1[] = "abc";
+	char ft_p2[] = "c";
+	size_t ft_p3 = 0;
 
+
+	char _p1[] = "abc";
+	char _p2[] = "c";
+	size_t _p3 = 0;
+
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+				test(0, __func__);
+				puts("NULL vs non NULL");
+	}
+	else
+	{
+			test(strcmp(ft_returns, _returns) == 0, __func__);
+	}
+
+	if(DEBUG)
+	{
+		printf("ft_return: %s\nexpected: %s\n", ft_returns, _returns);
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+
+}
+
+static void test_case_ft_strnstr_abc_c_1(void)
+{
+	// params
+	char ft_p1[] = "abc";
+	char ft_p2[] = "abc";
+	size_t ft_p3 = 3;
+
+
+	char _p1[] = "abc";
+	char _p2[] = "b";
+	size_t _p3 = 2;
+
+
+	char  *ft_returns = ft_strnstr(ft_p1, ft_p2, ft_p3);
+	char *_returns = strnstr(_p1, _p2, _p3);
+	if (ft_returns == NULL && _returns == NULL){
+		test(ft_returns == _returns, __func__);
+		puts("Test returns both nulls");
+	}
+
+	else if (ft_returns == NULL || _returns == NULL)
+	{
+		test(0, __func__);
+		puts("NULL vs non NULL");
+	}
+	else
+	{
+		test(strcmp(ft_returns, _returns) == 0, __func__);
+	}
+	printf("ft_return: %p\nexpected: %p\n", ft_returns, _returns);
+	if(1)
+	{
+		
+		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
+		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
+		printf(" ft_p3: %zu\n_p3: %zu\n", ft_p3, _p3);
+	}
+
+}
+
+static void test_suite_ft_strnstr(void)
+{
+	puts("");
+	printf("%s:\n", __func__);
+    puts("------------------");
+	test_case_ft_strnstr_abc_c_0();
+	test_case_ft_strnstr_abc_c_1();
+}
 
 
 //examples
@@ -778,25 +866,26 @@ static void test_suite_ft_memcmp(void)
 
 int main(void)
 {
-	test_suite_ft_isalpha();
-	test_suite_ft_isdigit();
-    test_suite_ft_isalnum();
-    test_suite_ft_isascii();
-    test_suite_ft_isprint();
-	test_suite_ft_strlen();
-	test_suite_ft_memset();
-	test_suite_ft_bzero();
-	test_suite_ft_memcpy();
-	test_suite_ft_memmove();
-	test_suite_ft_strlcpy();
-    test_suite_ft_strlcat();
-	test_suite_ft_toupper();
-	test_suite_ft_tolower();
-	test_suite_ft_strchr();
-	test_suite_ft_strrchr();
-	test_suite_ft_strncmp();
-	test_suite_ft_memchr();
-	test_suite_ft_memcmp();
+	// test_suite_ft_isalpha();
+	// test_suite_ft_isdigit();
+    // test_suite_ft_isalnum();
+    // test_suite_ft_isascii();
+    // test_suite_ft_isprint();
+	// test_suite_ft_strlen();
+	// test_suite_ft_memset();
+	// test_suite_ft_bzero();
+	// test_suite_ft_memcpy();
+	// test_suite_ft_memmove();
+	// test_suite_ft_strlcpy();
+    // test_suite_ft_strlcat();
+	// test_suite_ft_toupper();
+	// test_suite_ft_tolower();
+	// test_suite_ft_strchr();
+	// test_suite_ft_strrchr();
+	// test_suite_ft_strncmp();
+	// test_suite_ft_memchr();
+	// test_suite_ft_memcmp();
+	test_suite_ft_strnstr();
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;//
 }

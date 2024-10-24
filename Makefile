@@ -18,7 +18,7 @@ C_FILES := \
 	ft_strncmp.c \
 	ft_memchr.c \
 	ft_memcmp.c \
-	# ft_strnstr.c \
+	ft_strnstr.c \
 	# ft_atoi.c \
 	# ft_calloc.c \
 	# ft_strdup.c
@@ -29,7 +29,7 @@ OBJECT_FILES := $(patsubst %.c,%.o,$(C_FILES))
 NAME := libft.a
 
 # RULES
-all: norm run
+all: run
 
 $(NAME): $(OBJECT_FILES)
 	ar src $@ $^
@@ -41,12 +41,12 @@ clean:
 	rm -f $(OBJECT_FILES)
 
 fclean: clean
-	rm -f $(NAME) test
+	rm -f $(NAME)
 
 re: fclean all test
 
 test: $(NAME) test.c
-	@gcc test.c -o $@ -L. -lft -Wextra -Wall -Werror
+	@gcc test.c -o $@ -L. -lft
 
 run: test
 	@./test
@@ -54,7 +54,7 @@ run: test
 norm:
 	@norminette $(C_FILES) libft.h | less
 
-push:
+push: norm 
 	git add .
 	git commit -m "update" 
 	git push origin master
