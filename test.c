@@ -4,11 +4,19 @@
 #include <string.h>
 #include <stddef.h>
 #include <ctype.h>
+#include <limits.h>
+#include <stdlib.h>
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
 #define DEBUG 0
-
+#define log_int(var) printf(#var " = %d\n", var)
+#define log_char(var) printf(#var " = %c\n", var)
+#define log_float(var) printf(#var " = %f\n", var)
+#define log_string(var) printf(#var " = %s\n", var)
+#define log_pointer(var) printf(#var " = %p\n", var)
+#define log_size_t(var) printf(#var " = %zu\n", var)
+#define log_uint(var) printf(#var " = %u\n", var)
 
 static void test(int condition, const char *msg)
 {
@@ -1030,44 +1038,290 @@ static void test_suite_ft_strnstr(void)
 
 }
 ////////////// ft_atoi ////////////////////
+static void test_case_ft_atoi_a()
+{
+	char *a = "4";
+	char *_a = "4";
 
+	int ft_atoi_return = ft_atoi(a);
+	int atoi_return = atoi(_a);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(a);
+		log_string(_a);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_ab()
+{
+	char *ab = "42";
+	char *_ab = "42";
+
+	int ft_atoi_return = ft_atoi(ab);
+	int atoi_return = atoi(_ab);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(ab);
+		log_string(_ab);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_abc()
+{
+	char *abc = "421";
+	char *_abc = "421";
+
+	int ft_atoi_return = ft_atoi(abc);
+	int atoi_return = atoi(_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(abc);
+		log_string(abc);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_zero()
+{
+	char *zero = "0";
+	char *_zero = "0";
+
+	int ft_atoi_return = ft_atoi(zero);
+	int atoi_return = atoi(_zero);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(zero);
+		log_string(_zero);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_min_a()
+{
+	char *min_a = "-4";
+	char *_min_a = "-4";
+
+	int ft_atoi_return = ft_atoi(min_a);
+	int atoi_return = atoi(_min_a);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(min_a);
+		log_string(_min_a);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_min_ab()
+{
+	char *min_ab = "-42";
+	char *_min_ab = "-42";
+
+	int ft_atoi_return = ft_atoi(min_ab);
+	int atoi_return = atoi(_min_ab);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(min_ab);
+		log_string(_min_ab);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_min_abc()
+{
+	char *min_abc = "-421";
+	char *_min_abc = "-421";
+
+	int ft_atoi_return = ft_atoi(min_abc);
+	int atoi_return = atoi(_min_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(min_abc);
+		log_string(_min_abc);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_min_max()
+{
+	char *min_max = "-2147483648";
+	char *_min_max = "-2147483648";
+
+	int ft_atoi_return = ft_atoi(min_max);
+	int atoi_return = atoi(_min_max);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(min_max);
+		log_string(_min_max);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_max()
+{
+	char *max = "2147483647";
+	char *_max = "2147483647";
+
+	int ft_atoi_return = ft_atoi(max);
+	int atoi_return = atoi(_max);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(max);
+		log_string(_max);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_space_abc()
+{
+	char *space_abc = "   123";
+	char *_space_abc = "   123";
+
+	int ft_atoi_return = ft_atoi(space_abc);
+	int atoi_return = atoi(_space_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(space_abc);
+		log_string(_space_abc);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_space_plus_abc()
+{
+	char *space_plus_abc = "   +123";
+	char *_space_plus_abc = "   +123";
+
+	int ft_atoi_return = ft_atoi(space_plus_abc);
+	int atoi_return = atoi(_space_plus_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(space_plus_abc);
+		log_string(_space_plus_abc);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_space_plus_space_abc()
+{
+	char *space_plus_space_abc = "   + 123";
+	char *_space_plus_space_abc = "   + 123";
+
+	int ft_atoi_return = ft_atoi(space_plus_space_abc);
+	int atoi_return = atoi(_space_plus_space_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(space_plus_space_abc);
+		log_string(_space_plus_space_abc);
+	}
+	test(expected, __func__);
+}
+static void test_case_ft_atoi_space_plus()
+{
+	char *space_plus_abc = "   +";
+	char *_space_plus_abc = "   +";
+
+	int ft_atoi_return = ft_atoi(space_plus_abc);
+	int atoi_return = atoi(_space_plus_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(space_plus_abc);
+		log_string(_space_plus_abc);
+	}
+	test(expected, __func__);	
+}
+static void test_case_ft_atoi_plus_abc()
+{
+	char *plus_abc = "+987";
+	char *_plus_abc = "+987";
+
+	int ft_atoi_return = ft_atoi(plus_abc);
+	int atoi_return = atoi(_plus_abc);
+	int expected = ft_atoi_return == atoi_return;
+	if(!expected)
+	{
+		test(expected, __func__);
+		log_int(ft_atoi_return);
+		log_int(atoi_return);
+		log_string(plus_abc);
+		log_string(_plus_abc);
+	}
+	test(expected, __func__);
+}
 static void test_suite_ft_atoi(void)
 {
+	test_case_ft_atoi_a();
 	puts("");
-	printf("%s:\n", __func__);
-    puts("------------------");
-	test_case_ft_strchr_abc_c();
+	test_case_ft_atoi_ab();
+	puts("");
+	test_case_ft_atoi_abc();
+	puts("");
+	test_case_ft_atoi_zero();
+	puts("");
+	test_case_ft_atoi_min_a();
+	puts("");
+	test_case_ft_atoi_min_ab();
+	puts("");
+	test_case_ft_atoi_min_abc();
+	puts("");
+	test_case_ft_atoi_min_max();
+	puts("");
+	test_case_ft_atoi_max();
+	puts("");
+	test_case_ft_atoi_space_abc();
+	puts("");
+	test_case_ft_atoi_space_plus_abc();
+	puts("");
+	test_case_ft_atoi_space_plus_space_abc();
+	puts("");
+	test_case_ft_atoi_space_plus();
+	puts("");
+	test_case_ft_atoi_plus_abc();
+	puts("");
+
 }
-
-//examples
-// static void test_case_ft_strchr_abc_c(void)
-// {
-// 	// params
-// 	char ft_p1[4] = "abc";
-// 	char ft_p2[] = "c";
-
-
-// 	char _p1[4] = "abc";
-// 	char _p2[] = "c";
-
-
-// 	char  *ft_returns = ft_strchr(ft_p1, ft_p2);
-// 	char _returns = strchr(_p1, _p2);
-
-// 	test(ft_returns == _returns && strcmp(ft_p1, _p1) == 0, __func__);
-// 	if(DEBUG)
-// 		printf("ft_return: %s\nexpected: %li\n", ft_returns, _returns);
-// 		printf(" ft_p1: %s\n_p1: %s\n", ft_p1, _p1);
-// 		printf(" ft_p2: %s\n_p2: %s\n", ft_p2, _p2);
-// }
-
-// static void test_suite_ft_strchr(void)
-// {
-// 	puts("");
-// 	printf("%s:\n", __func__);
-//     puts("------------------");
-// 	test_case_ft_strchr_abc_c();
-// }
 
 int main(void)
 {
