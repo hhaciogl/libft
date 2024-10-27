@@ -1361,8 +1361,20 @@ static void test(int condition, const char *msg)
 // 	test_case_ft_calloc_5_1();
 // 	puts("");
 // 	test_case_ft_calloc_max_max();
-
 // }
+
+static void test_case_ft_strdup_hello()
+{
+	char	*new_copy;
+	new_copy = ft_strdup("hello");
+	test(strcmp(new_copy, "hello") == 0, __func__);
+	free(new_copy);
+}
+
+static void test_suite_ft_strdup(void)
+{
+	test_case_ft_strdup_hello();
+}
 
 int main(void)
 {
@@ -1388,6 +1400,7 @@ int main(void)
 	// test_suite_ft_strnstr();
 	// test_suite_ft_atoi();
 	// test_suite_ft_calloc();
+	test_suite_ft_strdup();
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;
 }
