@@ -1400,27 +1400,86 @@ static void test(int condition, const char *msg)
 
 // }
 
-static void test_case_ft_strjoin_ab_cd()
+// static void test_case_ft_strjoin_ab_cd()
+// {
+// 	char *new_str;
+// 	new_str = ft_strjoin("ab", "cd");
+// 	test(strcmp(new_str, "abcd")==0, __func__);
+// 	free(new_str);
+// }
+// static void test_case_ft_strjoin_abc_de()
+// {
+// 	char *new_str;
+// 	new_str = ft_strjoin("abc", "de");
+// 	test(strcmp(new_str, "abcde")==0, __func__);
+// 	free(new_str);
+// }
+
+// static void test_suite_ft_strjoin()
+// {
+// 	test_case_ft_strjoin_ab_cd();
+// 	test_case_ft_strjoin_abc_de();
+// }
+static void test_case_ft_strtrim_aabcdd_ad(void)
 {
-	char *new_str;
-	new_str = ft_strjoin("ab", "cd");
-	test(strcmp(new_str, "abcd")==0, __func__);
-	free(new_str);
-}
-static void test_case_ft_strjoin_abc_de()
-{
-	char *new_str;
-	new_str = ft_strjoin("abc", "de");
-	test(strcmp(new_str, "abcde")==0, __func__);
-	free(new_str);
+	const char *str = "aabcdd";
+	const char *set = "ad";
+	char *trimmed;
+	trimmed = ft_strtrim(str, set);
+	test(strcmp(trimmed, "bc") == 0, __func__);
+	log_string(trimmed);
+
 }
 
-static void test_suite_ft_strjoin()
+static void test_case_ft_strtrim_aabcdd_a(void)
 {
-	test_case_ft_strjoin_ab_cd();
-	test_case_ft_strjoin_abc_de();
+	const char *str = "aabcdd";
+	const char *set = "a";
+	char *trimmed;
+	trimmed = ft_strtrim(str, set);
+	test(strcmp(trimmed, "bcdd") == 0, __func__);
+	log_string(trimmed);
+
+}
+static void test_case_ft_strtrim_aabcdd_z(void)
+{
+	const char *str = "aabcdd";
+	const char *set = "z";
+	char *trimmed;
+	trimmed = ft_strtrim(str, set);
+	test(strcmp(trimmed, "aabcdd") == 0, __func__);
+	log_string(trimmed);
+
+}
+static void test_case_ft_strtrim_aabcdd_abcd(void)
+{
+	const char *str = "aabcdd";
+	const char *set = "abcd";
+	char *trimmed;
+	trimmed = ft_strtrim(str, set);
+	test(strcmp(trimmed, "") == 0, __func__);
+	log_string(trimmed);
+
+}
+static void test_case_ft_strtrim_zaabcdd_abcd(void)
+{
+	const char *str = "zaabcdd";
+	const char *set = "abcd";
+	char *trimmed;
+	trimmed = ft_strtrim(str, set);
+	test(strcmp(trimmed, "z") == 0, __func__);
+	log_string(trimmed);
+
 }
 
+static void	test_suite_ft_strtrim()
+{
+	test_case_ft_strtrim_aabcdd_ad();
+	test_case_ft_strtrim_aabcdd_a();
+	test_case_ft_strtrim_aabcdd_z();
+	test_case_ft_strtrim_aabcdd_abcd();
+	test_case_ft_strtrim_zaabcdd_abcd();
+}
 
 int main(void)
 {
@@ -1448,7 +1507,8 @@ int main(void)
 	// test_suite_ft_calloc();
 	// test_suite_ft_strdup();
 	// test_suite_ft_substr();
-	test_suite_ft_strjoin();
+	// test_suite_ft_strjoin();
+	test_suite_ft_strtrim();
 
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;
