@@ -1363,18 +1363,64 @@ static void test(int condition, const char *msg)
 // 	test_case_ft_calloc_max_max();
 // }
 
-static void test_case_ft_strdup_hello()
+// static void test_case_ft_strdup_hello()
+// {
+// 	char	*new_copy;
+// 	new_copy = ft_strdup("hello");
+// 	test(strcmp(new_copy, "hello") == 0, __func__);
+// 	free(new_copy);
+// }
+
+// static void test_suite_ft_strdup(void)
+// {
+// 	test_case_ft_strdup_hello();
+// }
+// static void test_case_ft_substr_hello_0_4()
+// {
+// 	char *part_of_str;
+// 	char *str = "hello";
+// 	part_of_str = ft_substr(str, 0, 4);
+// 	test(strcmp(part_of_str, "hell") == 0, __func__);
+// 	free(part_of_str);
+// }
+// static void test_case_ft_substr_hello_1_4()
+// {
+// 	char *part_of_str;
+// 	char *str = "hello";
+// 	part_of_str = ft_substr(str, 1, 4);
+// 	test(strcmp(part_of_str, "ello") == 0, __func__);
+// 	free(part_of_str);
+// }
+
+// static void test_suite_ft_substr(void)
+// {
+// 	test_case_ft_substr_hello_0_4();
+// 	puts("");
+// 	test_case_ft_substr_hello_1_4();
+
+// }
+
+static void test_case_ft_strjoin_ab_cd()
 {
-	char	*new_copy;
-	new_copy = ft_strdup("hello");
-	test(strcmp(new_copy, "hello") == 0, __func__);
-	free(new_copy);
+	char *new_str;
+	new_str = ft_strjoin("ab", "cd");
+	test(strcmp(new_str, "abcd")==0, __func__);
+	free(new_str);
+}
+static void test_case_ft_strjoin_abc_de()
+{
+	char *new_str;
+	new_str = ft_strjoin("abc", "de");
+	test(strcmp(new_str, "abcde")==0, __func__);
+	free(new_str);
 }
 
-static void test_suite_ft_strdup(void)
+static void test_suite_ft_strjoin()
 {
-	test_case_ft_strdup_hello();
+	test_case_ft_strjoin_ab_cd();
+	test_case_ft_strjoin_abc_de();
 }
+
 
 int main(void)
 {
@@ -1400,7 +1446,10 @@ int main(void)
 	// test_suite_ft_strnstr();
 	// test_suite_ft_atoi();
 	// test_suite_ft_calloc();
-	test_suite_ft_strdup();
+	// test_suite_ft_strdup();
+	// test_suite_ft_substr();
+	test_suite_ft_strjoin();
+
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;
 }
