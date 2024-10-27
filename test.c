@@ -1385,9 +1385,9 @@ int main(void)
 	// test_suite_ft_strncmp();
 	// test_suite_ft_memchr();
 	// test_suite_ft_memcmp();
-	//test_suite_ft_strnstr();
-	//test_suite_ft_atoi();
-	test_suite_ft_calloc();
+	// test_suite_ft_strnstr();
+	// test_suite_ft_atoi();
+	// test_suite_ft_calloc();
 	puts("\n\n\n---TESTING FINISED---");
 	return 0;
 }
