@@ -6,46 +6,71 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 13:57:18 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/27 01:27:13 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/27 12:00:46 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "log.h"
 
-static int	ctoi(int c)
+static int	char_to_int(char c)
 {
 	if (c >= '0' && c <= '9')
-	{
-		return (c - 48);
-	}
-	return (-1);
+		return (c - ('0' - 0));
+	return (0);
 }
 
-static size_t	ten_pow(size_t pow)
+static int	pow_ten(int size)
 {
-	size_t	i;
-	size_t	tens;
-
-	i = 1;
-	tens = 1;
-	if (pow == 0)
+	if (size == 0)
 		return (0);
-	while (i < pow)
+	if (size == 1)
+		return (1);
+	return (10 * pow_ten(size - 1));
+}
+
+static int	trim(const char *str, int *index, int *len)
+{
+	int	i;
+	int	is_negatif;
+
+	i = 0;
+	is_negatif = 0;
+	while (str[i] && str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		tens *= 10;
+		if (str[i] == '-')
+			is_negatif = 1;
 		i++;
 	}
-	return (tens);
+	*index = i;
+	while (str[i] && ft_isdigit(str[i]))
+		i++;
+	*len = i - *index;
+	return (is_negatif);
 }
 
-int	ft_atoi(const char *abc)
+static int	_ft_atoi(const char *str, int index, int len)
 {
-	size_t	len;
-
-	len = ft_strlen(abc);
 	if (len == 0)
 		return (0);
 	if (len == 1)
-		return (ctoi(abc[0]));
-	return ((ctoi(abc[0]) * ten_pow(len)) + ft_atoi(abc + 1));
+		return (char_to_int(str[index]) * pow_ten(len));
+	return (_ft_atoi(str, index + 1, len - 1)
+		+ (char_to_int(str[index]) * pow_ten(len)));
+}
+
+int	ft_atoi(const char *str)
+{
+	int		len;
+	int		index;
+	int		is_negatif;
+	long	out;
+
+	is_negatif = trim(str, &index, &len);
+	out = _ft_atoi(str, index, len);
+	if (is_negatif)
+		return (out * -1);
+	return (out);
 }
