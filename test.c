@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
-#include <string.h>
+#include <stdint.h>
 #include <stddef.h>
 #include <ctype.h>
 #include <limits.h>
@@ -1326,11 +1326,42 @@ static void test(int condition, const char *msg)
 // }
 static void test_case_ft_calloc_5_1(void)
 {
+	size_t	num_of_elements = 5;
+	size_t	size_of_element = sizeof(char);
+	char	*ptr;
 	
+	ptr = (char *)ft_calloc(num_of_elements, size_of_element);
+	if (ptr == NULL)
+	{
+		puts("error at allocation of memory");
+	}
+	strcpy(ptr,"hell");
+	test(ft_strlen(ptr) == 4, __func__);
+	free(ptr);
+
+}
+void test_case_ft_calloc_max_max()
+{
+	size_t	num_of_elements = SIZE_MAX;
+	size_t	size_of_element = SIZE_MAX;
+	char	*ptr_null;
+	
+	ptr_null = (char *)ft_calloc(num_of_elements, size_of_element);
+	if (ptr_null == NULL)
+	{
+		puts("error at allocation of memory");
+	}
+	strcpy(ptr_null,"hell");
+	test(ft_strlen(ptr_null) == 4, __func__);
+	free(ptr_null);
+
 }
 static void test_suite_ft_calloc(void)
 {
 	test_case_ft_calloc_5_1();
+	puts("");
+	test_case_ft_calloc_max_max();
+
 }
 
 int main(void)
