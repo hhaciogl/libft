@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 13:57:18 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/27 12:00:46 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/28 12:42:08 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ static int	trim(const char *str, int *index, int *len)
 
 	i = 0;
 	is_negatif = 0;
-	while (str[i] && str[i] == ' ')
+	while (str[i] && (str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\v' || str[i] == '\f'
+			|| str[i] == '\r' || str[i] == ' '))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
