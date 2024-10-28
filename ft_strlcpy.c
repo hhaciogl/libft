@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 19:43:00 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/22 19:06:01 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:52:22 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	{
 		dst[i] = src[i];
 		i++;
+	}
+	while (dst[i])
+	{
+		dst[i] = '\0';
 	}
 	dst[i] = '\0';
 	return (ft_strlen(src));

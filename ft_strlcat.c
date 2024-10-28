@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:10:33 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/23 14:35:39 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:50:42 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		return (src_len);
 	if (dstsize <= dst_len)
 		return (src_len + dstsize);
-	ft_strlcpy(dst + dst_len, src, src_len + 1);
-	dst[dstsize - 1] = '\0';
+	ft_strlcpy(dst + dst_len, src, dstsize - dst_len);
 	return (len_of_cat);
 }

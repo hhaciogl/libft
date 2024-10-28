@@ -226,13 +226,24 @@ static void test(int condition, const char *msg)
 // 	if(DEBUG)
 // 		printf(" result: [%s]\n expected:[%s]\n", result, expected);
 // }
+// static void test_case_ft_memcpy_NULL_NULL_6(void)
+// {
+// 	char result[6];
+// 	char *hello = "test";
+// 	ft_memcpy(NULL, NULL, 6);
+// 	char *expected = "hello";
+// 	test(strcmp(result, hello) == 0, "ft_memcpy([], hello, 6) should fill with hello");
+// 	if(DEBUG)
+// 		printf(" result: [%s]\n expected:[%s]\n", result, expected);
+// }
 
 // static void test_suite_ft_memcpy(void)
 // {
 // 	puts("");
 // 	printf("%s:\n", __func__);
 //  	puts("------------------");
-// 	test_case_ft_memcpy_empty_hello_6();
+// 	//test_case_ft_memcpy_empty_hello_6();
+// 	test_case_ft_memcpy_NULL_NULL_6();
 // }
 // //////////ft_memmove////////////////
 // static void test_case_ft_memmove_non_overlap(void)
@@ -1376,45 +1387,45 @@ static void test(int condition, const char *msg)
 // 	test_case_ft_strdup_hello();
 // }
 ////////////////ft_substr////////////////
-static void test_case_ft_substr_hello_0_4()
-{
-	char *part_of_str;
-	char *str = "hello";
-	part_of_str = ft_substr(str, 0, 4);
-	test(strcmp(part_of_str, "hell") == 0, __func__);
-	log_string(part_of_str);
-	log_string(str);
-	free(part_of_str);
-}
-static void test_case_ft_substr_hello_1_4()
-{
-	char *part_of_str;
-	char *str = "hello";
-	part_of_str = ft_substr(str, 1, 4);
-	test(strcmp(part_of_str, "ello") == 0, __func__);
-	log_string(part_of_str);
-	log_string(str);
-	free(part_of_str);
-}
-static void test_case_ft_substr_empty_1_4()
-{
-	char *part_of_str;
-	char *str = "";
-	part_of_str = ft_substr(str, 1, 4);
-	test(strcmp(part_of_str, "") == 0, __func__);
-	log_string(part_of_str);
-	log_string(str);
-	free(part_of_str);	
-}
+// static void test_case_ft_substr_hello_0_4()
+// {
+// 	char *part_of_str;
+// 	char *str = "hello";
+// 	part_of_str = ft_substr(str, 0, 4);
+// 	test(strcmp(part_of_str, "hell") == 0, __func__);
+// 	log_string(part_of_str);
+// 	log_string(str);
+// 	free(part_of_str);
+// }
+// static void test_case_ft_substr_hello_1_4()
+// {
+// 	char *part_of_str;
+// 	char *str = "hello";
+// 	part_of_str = ft_substr(str, 1, 4);
+// 	test(strcmp(part_of_str, "ello") == 0, __func__);
+// 	log_string(part_of_str);
+// 	log_string(str);
+// 	free(part_of_str);
+// }
+// static void test_case_ft_substr_empty_1_4()
+// {
+// 	char *part_of_str;
+// 	char *str = "";
+// 	part_of_str = ft_substr(str, 1, 4);
+// 	test(strcmp(part_of_str, "") == 0, __func__);
+// 	log_string(part_of_str);
+// 	log_string(str);
+// 	free(part_of_str);	
+// }
 
-static void test_suite_ft_substr(void)
-{
-	test_case_ft_substr_hello_0_4();
-	test_case_ft_substr_hello_1_4();
-	test_case_ft_substr_empty_1_4();
+// static void test_suite_ft_substr(void)
+// {
+// 	test_case_ft_substr_hello_0_4();
+// 	test_case_ft_substr_hello_1_4();
+// 	test_case_ft_substr_empty_1_4();
 	
 
-}
+// }
 
 // static void test_case_ft_strjoin_ab_cd()
 // {
@@ -1522,7 +1533,7 @@ int main(void)
 	// test_suite_ft_atoi();
 	// test_suite_ft_calloc();
 	// test_suite_ft_strdup();
-	test_suite_ft_substr();
+	// test_suite_ft_substr();
 	// test_suite_ft_strjoin();
 	// test_suite_ft_strtrim();
 
