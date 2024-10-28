@@ -1511,17 +1511,22 @@ static int test_case_ft_split_ABA_B()
 {
 	char *exp[] = {"A", "A", NULL};
 	char **out = ft_split("ABA", 'B');
-	size_t i = 0;
-	if (!out)
-		puts("out is NULL");
-		return (0);
-	while (exp[i])
-	{
-		test(strcmp(exp[i], out[i]) == 0, __func__);
-		log_string(out[i]);
-		log_string(exp[i]);
-		i++;
-	}
+	log_string(out[0]);
+	log_string(out[1]);
+	log_string(out[2]);
+	return (0);
+	// size_t i = 0;
+	// if (!out)
+	// 	puts("out is NULL");
+	// 	return (0);
+	// while (exp[i])
+	// {
+	// 	//test(strcmp(exp[i], out[i]) == 0, __func__);
+	// 	printf("%s\n",out[i]);
+	// 	printf("%s\n",exp[i]);
+	// 	puts("hello");
+	// 	i++;
+	// }
 }
 static void test_suite_ft_split(void)
 {
