@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:21:25 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/27 18:13:51 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/10/28 12:51:57 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strdup(const char *copy_me)
 	len_of_copy_me = ft_strlen(copy_me);
 	size_of_copy_me = len_of_copy_me + 1;
 	new_copy = malloc(size_of_copy_me * sizeof(*new_copy));
+	if (new_copy == NULL)
+		return (NULL);
 	ft_strlcpy(new_copy, copy_me, size_of_copy_me);
 	return (new_copy);
 }
