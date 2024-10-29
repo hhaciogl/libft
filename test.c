@@ -1507,30 +1507,36 @@ static void test(int condition, const char *msg)
 // 	test_case_ft_strtrim_aabcdd_abcd();
 // 	test_case_ft_strtrim_zaabcdd_abcd();
 // }
-static int test_case_ft_split_ABA_B()
+static int test_case_ft_split_BBBAABBBBCCBBB_B()
 {
-	char *exp[] = {"A", "A", NULL};
-	char **out = ft_split("ABA", 'B');
+	char *exp[] = {"AA", "CC", NULL};
+	char **out = ft_split("BBBAABBBBCCBBB", 'B');
+
 	log_string(out[0]);
-	log_string(out[1]);
-	log_string(out[2]);
-	return (0);
-	// size_t i = 0;
-	// if (!out)
-	// 	puts("out is NULL");
-	// 	return (0);
-	// while (exp[i])
-	// {
-	// 	//test(strcmp(exp[i], out[i]) == 0, __func__);
-	// 	printf("%s\n",out[i]);
-	// 	printf("%s\n",exp[i]);
-	// 	puts("hello");
-	// 	i++;
-	// }
+	size_t i = 0;
+	while (out[i] != NULL)
+	{
+		test(strcmp(exp[i],out[i]) == 0, __func__);
+		i++;
+	}
+	return 0;
 }
+// static int test_case_ft_split_ABA_B()
+// {
+// 	char *exp[] = {"A", "A", NULL};
+// 	char **out = ft_split("ABA", 'B');
+
+// 	size_t i = 0;
+// 	while (out[i] != NULL)
+// 	{
+// 		test(strcmp(exp[i],out[i]) == 0, __func__);
+// 		i++;
+// 	}
+// 	return 0;
+// }
 static void test_suite_ft_split(void)
 {
-	test_case_ft_split_ABA_B();
+	test_case_ft_split_BBBAABBBBCCBBB_B();
 }
 
 int main(void)
