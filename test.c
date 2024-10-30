@@ -1509,14 +1509,14 @@ static void test(int condition, const char *msg)
 // }
 static int test_case_ft_split_BBBAABBBBCCBBB_B()
 {
-	char *exp[] = {"AA", "CC", NULL};
-	char **out = ft_split("BBBAABBBBCCBBB", 'B');
+	char *exp[] = {"A", "A", NULL};
+	char **out = ft_split("BBBAAABBBABBBB", 'B');
 
-	log_string(out[0]);
 	size_t i = 0;
 	while (out[i] != NULL)
 	{
 		test(strcmp(exp[i],out[i]) == 0, __func__);
+		log_string(out[i]);
 		i++;
 	}
 	return 0;
