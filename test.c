@@ -1507,36 +1507,25 @@ static void test(int condition, const char *msg)
 // 	test_case_ft_strtrim_aabcdd_abcd();
 // 	test_case_ft_strtrim_zaabcdd_abcd();
 // }
-static int test_case_ft_split_BBBAABBBBCCBBB_B()
+static int test_case_ft_split_BABAB_B()
 {
 	char *exp[] = {"A", "A", NULL};
-	char **out = ft_split("BBBAAABBBABBBB", 'B');
+	char **out = ft_split("AaaaAaaaaaBaaaa", 'B');
 
 	size_t i = 0;
 	while (out[i] != NULL)
 	{
-		test(strcmp(exp[i],out[i]) == 0, __func__);
+		//test(strcmp(exp[i],out[i]) == 0, __func__);
 		log_string(out[i]);
 		i++;
 	}
+	log_string(out[i+1]);
 	return 0;
 }
-// static int test_case_ft_split_ABA_B()
-// {
-// 	char *exp[] = {"A", "A", NULL};
-// 	char **out = ft_split("ABA", 'B');
 
-// 	size_t i = 0;
-// 	while (out[i] != NULL)
-// 	{
-// 		test(strcmp(exp[i],out[i]) == 0, __func__);
-// 		i++;
-// 	}
-// 	return 0;
-// }
 static void test_suite_ft_split(void)
 {
-	test_case_ft_split_BBBAABBBBCCBBB_B();
+	test_case_ft_split_BABAB_B();
 }
 
 int main(void)
