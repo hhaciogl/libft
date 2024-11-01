@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/01 18:44:20 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/01 19:00:58 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	**list_to_arr(t_list *head)
 	t_list	*curr;
 	char	**out;
 
-	size = 1;
+	size = 0;
 	curr = head;
 	while (curr != NULL )
 	{
@@ -68,7 +68,6 @@ char	**list_to_arr(t_list *head)
 		curr = curr->next;
 		size++;
 	}
-	out[size] = NULL;
 	return (out);
 }
 
@@ -91,6 +90,7 @@ char	*_split(t_list **head, char *dest, char separator)
 	if (i == 0)
 	{
 		free(word);
+		add_node(head, NULL);
 		return (NULL);
 	}
 	add_node(head, word);
