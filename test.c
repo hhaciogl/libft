@@ -1400,9 +1400,9 @@ static void test(int condition, const char *msg)
 // static void test_case_ft_substr_hello_1_4()
 // {
 // 	char *part_of_str;
-// 	char *str = "hello";
-// 	part_of_str = ft_substr(str, 1, 4);
-// 	test(strcmp(part_of_str, "ello") == 0, __func__);
+// 	char *str = "01234";
+// 	part_of_str = ft_substr(str, 10, 10);
+// 	test(strcmp(part_of_str, "") == 0, __func__);
 // 	log_string(part_of_str);
 // 	log_string(str);
 // 	free(part_of_str);
@@ -1420,9 +1420,9 @@ static void test(int condition, const char *msg)
 
 // static void test_suite_ft_substr(void)
 // {
-// 	test_case_ft_substr_hello_0_4();
+// 	//test_case_ft_substr_hello_0_4();
 // 	test_case_ft_substr_hello_1_4();
-// 	test_case_ft_substr_empty_1_4();
+// 	//test_case_ft_substr_empty_1_4();
 	
 
 // }
@@ -1510,16 +1510,32 @@ static void test(int condition, const char *msg)
 static int test_case_ft_split_BABAB_B()
 {
 	char *exp[] = {"A", "A", NULL};
-	char **out = ft_split("AaaaAaaaaaBaaaa", 'B');
+	char **out = ft_split("      split       this for   me  !       ", ' ');
 
 	size_t i = 0;
+	if (out == NULL)
+	{
+		puts("null");
+		return (0);
+	}
+		
 	while (out[i] != NULL)
 	{
 		//test(strcmp(exp[i],out[i]) == 0, __func__);
 		log_string(out[i]);
 		i++;
 	}
-	log_string(out[i+1]);
+	free(out[i]);
+	i = 0;
+	while (out[i] != NULL)
+	{
+		//test(strcmp(exp[i],out[i]) == 0, __func__);
+		free(out[i]);
+		i++;
+	}
+	//log_string(out[i]);
+	i = 0;
+	free(out);
 	return 0;
 }
 
@@ -1554,7 +1570,7 @@ int main(void)
 	// test_suite_ft_atoi();
 	// test_suite_ft_calloc();
 	// test_suite_ft_strdup();
-	// test_suite_ft_substr();
+	//test_suite_ft_substr();
 	// test_suite_ft_strjoin();
 	// test_suite_ft_strtrim();
 

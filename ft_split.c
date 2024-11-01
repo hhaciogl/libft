@@ -6,11 +6,12 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/31 18:29:52 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:44:20 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "log.h"
 
 t_list	*create_node(void *val)
 {
@@ -48,19 +49,22 @@ char	**list_to_arr(t_list *head)
 	t_list	*curr;
 	char	**out;
 
-	size = 0;
+	size = 1;
 	curr = head;
-	while (curr != NULL)
+	while (curr != NULL )
 	{
 		curr = curr->next;
 		size++;
 	}
-	out = malloc((size + 1) * sizeof(*out));
+	out = malloc((size) * sizeof(*out));
 	size = 0;
 	curr = head;
 	while (curr != NULL)
 	{
-		out[size] = (char *)curr->context;
+		if (out == NULL)
+			free(curr->context);
+		else
+			out[size] = (char *)curr->context;
 		curr = curr->next;
 		size++;
 	}
@@ -85,7 +89,10 @@ char	*_split(t_list **head, char *dest, char separator)
 		i++;
 	word = ft_substr(dest, 0, i);
 	if (i == 0)
+	{
+		free(word);
 		return (NULL);
+	}
 	add_node(head, word);
 	ft_memmove(dest, dest + i, ft_strlen(dest + i) + 1);
 	return (_split(head, dest, separator));

@@ -47,22 +47,24 @@ $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
 $(OBJECT_FILES): %.o: %.c
-	cc -o $@ -c $< -Wextra -Wall -Werror
+	gcc  -g -o $@ -c $< -Wextra -Wall -Werror
 
 clean:
 	rm -f $(OBJECT_FILES)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) test
 
 re: fclean all test
 
 test: $(NAME) test.c
-	cc test.c -o test -L. -lft
+	gcc -g test.c -o test -L. -lft
 
 run: test
 	./test
-	
+val:
+	valgrind --leak-check=full --track-origins=yes ./test
+
 push:
 	set -e
 	clear
