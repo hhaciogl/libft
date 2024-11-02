@@ -1507,46 +1507,90 @@ static void test(int condition, const char *msg)
 // 	test_case_ft_strtrim_aabcdd_abcd();
 // 	test_case_ft_strtrim_zaabcdd_abcd();
 // }
-static int test_case_ft_split_BABAB_B()
-{
-	char *exp[] = {"A", "A", NULL};
-	char **out = ft_split("      split       this for   me  !       ", ' ');
+// static int test_case_ft_split_BABAB_B()
+// {
+// 	char *exp[] = {"A", "A", NULL};
+// 	char **out = ft_split("      split       this for   me  !       ", ' ');
 
-	size_t i = 0;
-	if (out == NULL)
-	{
-		puts("null");
-		return (0);
-	}
+// 	size_t i = 0;
+// 	if (out == NULL)
+// 	{
+// 		puts("null");
+// 		return (0);
+// 	}
 		
-	while (out[i] != NULL)
-	{
-		//test(strcmp(exp[i],out[i]) == 0, __func__);
-		log_string(out[i]);
-		i++;
-	}
-	free(out[i]);
-	i = 0;
-	while (out[i] != NULL)
-	{
-		//test(strcmp(exp[i],out[i]) == 0, __func__);
-		free(out[i]);
-		i++;
-	}
-	//log_string(out[i]);
-	i = 0;
-	free(out);
-	return 0;
+// 	while (out[i] != NULL)
+// 	{
+// 		//test(strcmp(exp[i],out[i]) == 0, __func__);
+// 		log_string(out[i]);
+// 		i++;
+// 	}
+// 	free(out[i]);
+// 	i = 0;
+// 	while (out[i] != NULL)
+// 	{
+// 		//test(strcmp(exp[i],out[i]) == 0, __func__);
+// 		free(out[i]);
+// 		i++;
+// 	}
+// 	//log_string(out[i]);
+// 	i = 0;
+// 	free(out);
+// 	return 0;
+// }
+
+// static void test_suite_ft_split(void)
+// {
+// 	test_case_ft_split_BABAB_B();
+// }
+void test_case_ft_itoa_0()
+{
+	char *exp;
+
+	exp = ft_itoa(0);
+	test(strcmp(exp, "0") == 0, __func__);
+	log_string(exp);
+}
+void test_case_ft_itoa_12()
+{
+	char *exp;
+
+	exp = ft_itoa(12);
+	test(strcmp(exp, "12") == 0, __func__);
+	log_string(exp);
 }
 
-static void test_suite_ft_split(void)
+void test_case_ft_itoa_69()
 {
-	test_case_ft_split_BABAB_B();
+	char *exp;
+
+	exp = ft_itoa(69);
+	test(strcmp(exp, "69") == 0, __func__);
+	log_string(exp);
+}
+
+void test_case_ft_itoa_min_69()
+{
+	char *exp;
+
+	exp = ft_itoa(-69);
+	test(strcmp(exp, "-69") == 0, __func__);
+	log_string(exp);
+}
+
+
+void test_suite_ft_itoa()
+{
+	test_case_ft_itoa_12();
+	test_case_ft_itoa_69();
+	test_case_ft_itoa_min_69();
+	test_case_ft_itoa_0();
 }
 
 int main(void)
 {
-	test_suite_ft_split();
+	test_suite_ft_itoa();
+	// test_suite_ft_split();
 	// test_suite_ft_isalpha();
 	// test_suite_ft_isdigit();
     // test_suite_ft_isalnum();

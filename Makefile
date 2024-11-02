@@ -26,7 +26,7 @@ C_FILES := \
 	ft_strjoin.c \
 	ft_strtrim.c \
 	ft_split.c \
-	# ft_itoa.c \
+	ft_itoa.c \
 	# ft_strmapi.c \
 	# ft_striteri.c \
 	# ft_putchar_fd.c \
@@ -47,7 +47,7 @@ $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
 $(OBJECT_FILES): %.o: %.c
-	gcc  -g -o $@ -c $< -Wextra -Wall -Werror
+	gcc  -o $@ -c $< -Wextra -Wall -Werror
 
 clean:
 	rm -f $(OBJECT_FILES)
@@ -58,7 +58,7 @@ fclean: clean
 re: fclean all test
 
 test: $(NAME) test.c
-	gcc -g test.c -o test -L. -lft
+	gcc  test.c -o test -L. -lft
 
 run: test
 	./test

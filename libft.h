@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:44:33 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/02 14:20:27 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/02 20:09:13 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 
 #endif
