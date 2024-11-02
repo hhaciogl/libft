@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:44:33 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/31 15:31:39 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:20:27 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ typedef struct s_list
 	void			*context;
 	struct s_list	*next;
 }	t_list;
+typedef struct s_vars
+{
+	char	*word;
+	char	set[2];
+	char	*temp;
+}	t_vars;
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

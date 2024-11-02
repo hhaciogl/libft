@@ -6,16 +6,16 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/01 19:00:58 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:17:18 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "log.h"
 
-t_list	*create_node(void *val)
+void	add_node(t_list **head, void *val)
 {
 	t_list	*node;
+	t_list	*curr;
 
 	node = malloc(sizeof(node));
 	if (node != NULL)
@@ -23,15 +23,6 @@ t_list	*create_node(void *val)
 		node->context = val;
 		node->next = NULL;
 	}
-	return (node);
-}
-
-void	add_node(t_list **head, void *val)
-{
-	t_list	*node;
-	t_list	*curr;
-
-	node = create_node(val);
 	if (*head == NULL)
 		*head = node;
 	else
@@ -51,7 +42,7 @@ char	**list_to_arr(t_list *head)
 
 	size = 0;
 	curr = head;
-	while (curr != NULL )
+	while (curr != NULL)
 	{
 		curr = curr->next;
 		size++;
@@ -73,27 +64,29 @@ char	**list_to_arr(t_list *head)
 
 char	*_split(t_list **head, char *dest, char separator)
 {
-	char	*word;
-	char	set[2];
-	char	*temp;
+	t_vars	arg;
 	size_t	i;
 
-	set[0] = separator;
-	set[1] = '\0';
+	arg.set[0] = separator;
+	arg.set[1] = '\0';
 	i = 0;
-	temp = ft_strtrim(dest, set);
-	ft_strlcpy(dest, temp, ft_strlen(temp)+1);
-	free(temp);
+	arg.temp = ft_strtrim(dest, arg.set);
+	if (arg.temp == NULL)
+		return (NULL);
+	ft_strlcpy(dest, arg.temp, ft_strlen(arg.temp) + 1);
+	free(arg.temp);
 	while (dest[i] != separator && dest[i] != '\0')
 		i++;
-	word = ft_substr(dest, 0, i);
+	arg.word = ft_substr(dest, 0, i);
+	if (arg.word == NULL)
+		return (NULL);
 	if (i == 0)
 	{
-		free(word);
+		free(arg.word);
 		add_node(head, NULL);
-		return (NULL);
+		return ("");
 	}
-	add_node(head, word);
+	add_node(head, arg.word);
 	ft_memmove(dest, dest + i, ft_strlen(dest + i) + 1);
 	return (_split(head, dest, separator));
 }
@@ -108,8 +101,12 @@ char	**ft_split(char const *str, char separator)
 
 	head = NULL;
 	dest = ft_strdup(str);
-	_split(&head, dest, separator);
-	out = list_to_arr(head);
+	if (dest == NULL)
+		return (NULL);
+	if (_split(&head, dest, separator) == NULL)
+		out = NULL;
+	else
+		out = list_to_arr(head);
 	free(dest);
 	current = head;
 	while (current != NULL)
