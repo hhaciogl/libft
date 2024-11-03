@@ -1602,27 +1602,27 @@ static void test(int condition, const char *msg)
 // {
 // 	test_case_ft_strmapi_abc_upcase();
 // }
-static void iupcase(unsigned int i, char *s)
-{
-	*s = *s -32;
-}
-void test_case_ft_striteri_abc_iupcase()
-{
-	char out[4] = "abc";
-	ft_striteri(out, iupcase);
-	log_string(out);
-	test(strcmp(out, "ABC") == 0, __func__);
-	log_string(out);
-}
+// static void iupcase(unsigned int i, char *s)
+// {
+// 	*s = *s -32;
+// }
+// void test_case_ft_striteri_abc_iupcase()
+// {
+// 	char out[4] = "abc";
+// 	ft_striteri(out, iupcase);
+// 	log_string(out);
+// 	test(strcmp(out, "ABC") == 0, __func__);
+// 	log_string(out);
+// }
 
-void test_suite_ft_striteri()
-{
-	test_case_ft_striteri_abc_iupcase();
-}
+// void test_suite_ft_striteri()
+// {
+// 	test_case_ft_striteri_abc_iupcase();
+// }
 int main(void)
 {
-	test_suite_ft_striteri();
-	//test_suite_ft_strmapi();
+	// test_suite_ft_striteri();
+	// test_suite_ft_strmapi();
 	// test_suite_ft_itoa();
 	// test_suite_ft_split();
 	// test_suite_ft_isalpha();
