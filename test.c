@@ -1543,53 +1543,69 @@ static void test(int condition, const char *msg)
 // {
 // 	test_case_ft_split_BABAB_B();
 // }
-void test_case_ft_itoa_0()
+// void test_case_ft_itoa_0()
+// {
+// 	char *exp;
+
+// 	exp = ft_itoa(0);
+// 	test(strcmp(exp, "0") == 0, __func__);
+// 	log_string(exp);
+// }
+// void test_case_ft_itoa_12()
+// {
+// 	char *exp;
+
+// 	exp = ft_itoa(12);
+// 	test(strcmp(exp, "12") == 0, __func__);
+// 	log_string(exp);
+// }
+
+// void test_case_ft_itoa_69()
+// {
+// 	char *exp;
+
+// 	exp = ft_itoa(69);
+// 	test(strcmp(exp, "69") == 0, __func__);
+// 	log_string(exp);
+// }
+
+// void test_case_ft_itoa_min_69()
+// {
+// 	char *exp;
+
+// 	exp = ft_itoa(-69);
+// 	test(strcmp(exp, "-69") == 0, __func__);
+// 	log_string(exp);
+// }
+
+// void test_suite_ft_itoa()
+// {
+// 	test_case_ft_itoa_12();
+// 	test_case_ft_itoa_69();
+// 	test_case_ft_itoa_min_69();
+// 	test_case_ft_itoa_0();
+// }
+static char upcase(unsigned int i, char a)
 {
-	char *exp;
-
-	exp = ft_itoa(0);
-	test(strcmp(exp, "0") == 0, __func__);
-	log_string(exp);
+	return ft_toupper(a);
 }
-void test_case_ft_itoa_12()
+void test_case_ft_strmapi_abc_upcase()
 {
-	char *exp;
+	char *out;
 
-	exp = ft_itoa(12);
-	test(strcmp(exp, "12") == 0, __func__);
-	log_string(exp);
+	out = ft_strmapi("abc", upcase);
+	test(strcmp(out, "ABC") == 0, __func__);
+	log_string(out);
 }
 
-void test_case_ft_itoa_69()
+void test_suite_ft_strmapi()
 {
-	char *exp;
-
-	exp = ft_itoa(69);
-	test(strcmp(exp, "69") == 0, __func__);
-	log_string(exp);
+	test_case_ft_strmapi_abc_upcase();
 }
-
-void test_case_ft_itoa_min_69()
-{
-	char *exp;
-
-	exp = ft_itoa(-69);
-	test(strcmp(exp, "-69") == 0, __func__);
-	log_string(exp);
-}
-
-
-void test_suite_ft_itoa()
-{
-	test_case_ft_itoa_12();
-	test_case_ft_itoa_69();
-	test_case_ft_itoa_min_69();
-	test_case_ft_itoa_0();
-}
-
 int main(void)
 {
-	test_suite_ft_itoa();
+	test_suite_ft_strmapi();
+	// test_suite_ft_itoa();
 	// test_suite_ft_split();
 	// test_suite_ft_isalpha();
 	// test_suite_ft_isdigit();
