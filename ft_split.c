@@ -6,13 +6,13 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/02 14:17:18 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/03 20:07:22 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	add_node(t_list **head, void *val)
+static void	add_node(t_list **head, void *val)
 {
 	t_list	*node;
 	t_list	*curr;
@@ -34,7 +34,7 @@ void	add_node(t_list **head, void *val)
 	}
 }
 
-char	**list_to_arr(t_list *head)
+static char	**list_to_arr(t_list *head)
 {
 	size_t	size;
 	t_list	*curr;
@@ -62,7 +62,7 @@ char	**list_to_arr(t_list *head)
 	return (out);
 }
 
-char	*_split(t_list **head, char *dest, char separator)
+static char	*_split(t_list **head, char *dest, char separator)
 {
 	t_vars	arg;
 	size_t	i;

@@ -6,18 +6,18 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:07:48 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/02 21:29:28 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/03 20:04:40 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	int_to_char(int n)
+static char	int_to_char(int n)
 {
 	return ("0123456789"[n]);
 }
 
-size_t	get_int_size(int n, int *is_negatif)
+static size_t	get_int_size(int n, int *is_negatif)
 {
 	size_t	i;
 	long	l_int;
@@ -40,7 +40,7 @@ size_t	get_int_size(int n, int *is_negatif)
 	return (i);
 }
 
-void	swap(char *a, char *b)
+static void	swap(char *a, char *b)
 {
 	char	temp;
 
@@ -49,7 +49,7 @@ void	swap(char *a, char *b)
 	*b = temp;
 }
 
-char	*reverse(char *str)
+static char	*reverse(char *str)
 {
 	size_t	i;
 	char	*end;

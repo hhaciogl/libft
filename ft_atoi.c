@@ -6,12 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 13:57:18 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/28 12:42:08 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/03 20:04:43 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "log.h"
 
 static int	char_to_int(char c)
 {
