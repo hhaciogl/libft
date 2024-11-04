@@ -6,23 +6,32 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/03 20:07:22 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:09:55 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+static	t_list	*create(void *val)
+{
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (node != NULL)
+	{
+		node->context = val;
+		node->next = NULL;
+	}
+	return (node);
+}
 
 static void	add_node(t_list **head, void *val)
 {
 	t_list	*node;
 	t_list	*curr;
 
-	node = malloc(sizeof(node));
-	if (node != NULL)
-	{
-		node->context = val;
-		node->next = NULL;
-	}
+	node = create(val);
 	if (*head == NULL)
 		*head = node;
 	else
