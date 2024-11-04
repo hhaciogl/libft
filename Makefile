@@ -34,43 +34,57 @@ C_FILES := \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+OBJECT_FILES := \
+    ft_isalpha.o \
+    ft_isdigit.o \
+    ft_isalnum.o \
+	ft_isascii.o \
+	ft_isprint.o \
+	ft_strlen.o \
+	ft_memset.o \
+	ft_bzero.o \
+	ft_memcpy.o \
+	ft_memmove.o \
+	ft_strlcpy.o \
+	ft_strlcat.o \
+	ft_toupper.o \
+	ft_tolower.o \
+	ft_strchr.o \
+	ft_strrchr.o \
+	ft_strncmp.o \
+	ft_memchr.o \
+	ft_memcmp.o \
+	ft_strnstr.o \
+	ft_atoi.o \
+	ft_calloc.o \
+	ft_strdup.o \
+	ft_substr.o \
+	ft_strjoin.o \
+	ft_strtrim.o \
+	ft_split.o \
+	ft_itoa.o \
+	ft_strmapi.o \
+	ft_striteri.o \
+	ft_putchar_fd.o \
+	ft_putstr_fd.o \
+	ft_putendl_fd.o \
+	ft_putnbr_fd.o
 
-
-OBJECT_FILES := $(patsubst %.c,%.o,$(C_FILES))
 
 NAME := libft.a
+CFLAGS := -Wall -Wextra -Werror
 
-# RULES
 all: run
 
 $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
-$(OBJECT_FILES): %.o: %.c
-	gcc  -o $@ -c $< -Wextra -Wall -Werror
-
 clean:
 	rm -f $(OBJECT_FILES)
 
 fclean: clean
-	rm -f $(NAME) test
+	rm -f $(NAME)
 
-re: fclean all test
+re: fclean all
 
-test: $(NAME) test.c
-	gcc  test.c -o test -L. -lft
-
-run: test
-	./test
-val:
-	valgrind --leak-check=full --track-origins=yes ./test
-
-push:
-	set -e
-	clear
-	norminette $(C_FILES) libft.h
-	git add .
-	git commit -m "update" 
-	git push origin master
-
-.PHONY: clean all re run fclean push 
+.PHONY: clean all re run fclean
