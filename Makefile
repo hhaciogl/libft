@@ -74,7 +74,7 @@ OBJECT_FILES := \
 NAME := libft.a
 CFLAGS := -Wall -Wextra -Werror
 
-all: run
+all: $(NAME)
 
 $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
