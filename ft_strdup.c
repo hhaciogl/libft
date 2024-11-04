@@ -6,12 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:21:25 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/02 14:15:46 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:23:32 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *copy_me)
 {
