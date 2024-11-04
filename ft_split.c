@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 19:09:55 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:10:16 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	t_list	*create(void *val)
 	node = malloc(sizeof(t_list));
 	if (node != NULL)
 	{
-		node->context = val;
+		node->content = val;
 		node->next = NULL;
 	}
 	return (node);
@@ -62,9 +62,9 @@ static char	**list_to_arr(t_list *head)
 	while (curr != NULL)
 	{
 		if (out == NULL)
-			free(curr->context);
+			free(curr->content);
 		else
-			out[size] = (char *)curr->context;
+			out[size] = (char *)curr->content;
 		curr = curr->next;
 		size++;
 	}

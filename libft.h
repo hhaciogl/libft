@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:44:33 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 15:45:55 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 20:09:05 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_list
 {
-	void			*context;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 typedef struct s_vars
@@ -60,5 +60,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+t_list	*ft_lstnew(void *content);
 
 #endif
