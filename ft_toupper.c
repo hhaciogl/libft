@@ -6,11 +6,10 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:48:21 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/23 15:52:41 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:15:00 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
 int	ft_toupper(int c)
 {

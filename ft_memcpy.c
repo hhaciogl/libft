@@ -6,11 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:01:31 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/28 15:43:37 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:06:07 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

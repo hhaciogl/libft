@@ -6,11 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 23:04:31 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/21 15:29:49 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:06:31 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {

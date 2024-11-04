@@ -6,11 +6,10 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:53:36 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/20 21:03:12 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:02:33 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
 int	ft_isprint(int c)
 {

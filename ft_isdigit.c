@@ -6,11 +6,10 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 19:10:47 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/20 19:31:42 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:02:26 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {

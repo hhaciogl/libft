@@ -6,11 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 20:26:51 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/23 20:46:32 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:04:44 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

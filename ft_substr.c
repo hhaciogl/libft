@@ -6,12 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:38:56 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/01 18:24:53 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:14:37 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
