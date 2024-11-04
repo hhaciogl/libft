@@ -6,10 +6,9 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:56:49 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 16:02:07 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:31:45 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 static	int	ft_islower(int c)
 {

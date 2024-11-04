@@ -6,11 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 13:22:58 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 15:40:31 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:30:45 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
