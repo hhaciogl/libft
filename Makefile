@@ -36,14 +36,14 @@ C_FILES := \
 
 BONUS_C_FILES := \
 	ft_lstnew.c \
-	# ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
+	#ft_lstadd_front.c \
+	#ft_lstsize.c \
+	#ft_lstlast.c \
+	#ft_lstadd_back.c \
+	#ft_lstdelone.c \
+	#ft_lstclear.c \
+	#ft_lstiter.c \
+	#ft_lstmap.c
 
 OBJECT_FILES := \
     ft_isalpha.o \
@@ -84,14 +84,14 @@ OBJECT_FILES := \
 
 BONUS_O_FILES := \
 	ft_lstnew.o \
-	# ft_lstadd_front.o \
-	ft_lstsize.o \
-	ft_lstlast.o \
-	ft_lstadd_back.o \
-	ft_lstdelone.o \
-	ft_lstclear.o \
-	ft_lstiter.o \
-	ft_lstmap.o
+	#ft_lstadd_front.o \
+	#ft_lstsize.o \
+	#ft_lstlast.o \
+	#ft_lstadd_back.o \
+	#ft_lstdelone.o \
+	#ft_lstclear.o \
+	#ft_lstiter.o \
+	#ft_lstmap.o
 
 NAME := libft.a
 CFLAGS := -Wall -Wextra -Werror

@@ -6,11 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:54:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/29 13:40:57 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:57:56 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 char	*ft_strchr(const char *str, int chr)
 {

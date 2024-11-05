@@ -6,14 +6,13 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:44:33 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 20:09:05 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:09:44 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
+# include <stddef.h>
 
 typedef struct s_list
 {

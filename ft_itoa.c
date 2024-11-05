@@ -6,11 +6,12 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:07:48 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 16:23:18 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:51:40 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static char	int_to_char(int n)
 {

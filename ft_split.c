@@ -6,12 +6,12 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 20:10:16 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:50:37 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 static	t_list	*create(void *val)
 {

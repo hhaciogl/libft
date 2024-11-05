@@ -6,10 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:59:06 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 20:11:02 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:45:14 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)

@@ -6,10 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:34:44 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 12:23:23 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:47:07 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t num_of_elements, size_t size_of_element)
