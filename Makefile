@@ -36,7 +36,7 @@ C_FILES := \
 
 BONUS_C_FILES := \
 	ft_lstnew.c \
-	#ft_lstadd_front.c \
+	ft_lstadd_front.c \
 	#ft_lstsize.c \
 	#ft_lstlast.c \
 	#ft_lstadd_back.c \
@@ -84,7 +84,7 @@ OBJECT_FILES := \
 
 BONUS_O_FILES := \
 	ft_lstnew.o \
-	#ft_lstadd_front.o \
+	ft_lstadd_front.o \
 	#ft_lstsize.o \
 	#ft_lstlast.o \
 	#ft_lstadd_back.o \
@@ -96,9 +96,9 @@ BONUS_O_FILES := \
 NAME := libft.a
 CFLAGS := -Wall -Wextra -Werror
 
-all: $(NAME) 
+all: $(NAME)
 
-$(NAME): bonus $(OBJECT_FILES)
+$(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
 bonus: $(BONUS_O_FILES)
