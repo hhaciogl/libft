@@ -101,11 +101,12 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
-bonus: $(BONUS_O_FILES)
-	ar src $(NAME) $(BONUS_O_FILES)
+bonus: $(OBJECT_FILES) $(BONUS_O_FILES)
+	ar src $(NAME) $(OBJECT_FILES) $(BONUS_O_FILES)
+	touch bonus
 
 clean:
-	rm -f $(OBJECT_FILES) $(BONUS_O_FILES)
+	rm -f $(OBJECT_FILES) $(BONUS_O_FILES) bonus
 
 fclean: clean
 	rm -f $(NAME)
@@ -116,4 +117,4 @@ test: all main.c
 	gcc main.c -L. -lft -o test
 	./test
 
-.PHONY: clean all re run fclean bonus test
+.PHONY: clean all re run fclean test
