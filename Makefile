@@ -43,7 +43,7 @@ BONUS_C_FILES := \
 	ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c \
 	ft_lstiter_bonus.c \
-	#ft_lstmap_bonus.c
+	ft_lstmap_bonus.c
 
 OBJECT_FILES := \
     ft_isalpha.o \
@@ -90,7 +90,7 @@ BONUS_O_FILES := \
 	ft_lstdelone_bonus.o \
 	ft_lstclear_bonus.o \
 	ft_lstiter_bonus.o \
-	#ft_lstmap_bonus.o
+	ft_lstmap_bonus.o
 
 NAME := libft.a
 CFLAGS := -Wall -Wextra -Werror
