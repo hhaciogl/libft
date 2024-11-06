@@ -79,8 +79,7 @@ OBJECT_FILES := \
 	ft_putchar_fd.o \
 	ft_putstr_fd.o \
 	ft_putendl_fd.o \
-	ft_putnbr_fd.o \
-	ft_lstnew.o
+	ft_putnbr_fd.o
 
 BONUS_O_FILES := \
 	ft_lstnew.o \
@@ -106,15 +105,22 @@ bonus: $(OBJECT_FILES) $(BONUS_O_FILES)
 	touch bonus
 
 clean:
-	rm -f $(OBJECT_FILES) $(BONUS_O_FILES) bonus
+	rm -f $(OBJECT_FILES) $(BONUS_O_FILES) bonus test main.c
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-test: all main.c
+test: bonus main.c
+	@echo =============================
 	gcc main.c -L. -lft -o test
-	./test
+	@./test
 
-.PHONY: clean all re run fclean test
+push: clean
+	git add .
+	git commit -m update
+	git push origin
+	git push 42
+
+.PHONY: clean all re run fclean push
