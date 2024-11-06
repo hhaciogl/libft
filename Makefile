@@ -117,10 +117,14 @@ test: bonus main.c
 	gcc main.c -L. -lft -o test
 	@./test
 
-push: clean
+norm:
+	norminette $(C_FILES) $(BONUS_C_FILES) libft.h
+
+push: clean norm
+	set -e
 	git add .
 	git commit -m "$(M)"
 	git push origin
 	git push 42
 
-.PHONY: clean all re run fclean push
+.PHONY: clean all re run fclean push norm
