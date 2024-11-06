@@ -37,7 +37,7 @@ C_FILES := \
 BONUS_C_FILES := \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
-	#ft_lstsize.c \
+	ft_lstsize.c \
 	#ft_lstlast.c \
 	#ft_lstadd_back.c \
 	#ft_lstdelone.c \
@@ -84,7 +84,7 @@ OBJECT_FILES := \
 BONUS_O_FILES := \
 	ft_lstnew.o \
 	ft_lstadd_front.o \
-	#ft_lstsize.o \
+	ft_lstsize.o \
 	#ft_lstlast.o \
 	#ft_lstadd_back.o \
 	#ft_lstdelone.o \
