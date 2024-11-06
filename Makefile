@@ -119,7 +119,7 @@ test: bonus main.c
 
 push: clean
 	git add .
-	git commit -m update
+	git commit -m $(M)
 	git push origin
 	git push 42
 

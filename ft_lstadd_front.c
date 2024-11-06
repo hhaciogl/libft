@@ -6,12 +6,13 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:52:18 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/06 13:12:23 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/06 13:17:38 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// test
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;
