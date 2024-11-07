@@ -120,7 +120,7 @@ test: bonus main.c
 norm:
 	norminette $(C_FILES) $(BONUS_C_FILES) libft.h
 
-push: clean norm
+push: fclean norm
 	set -e
 	git add .
 	git commit -m "$(M)"
