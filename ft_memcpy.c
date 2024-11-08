@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:01:31 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/04 16:06:07 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/08 00:09:58 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char		*pdst;
 	unsigned const char	*psrc;
 
-	if (dst == (void *)0 && src == (void *)0)
+	if (dst == NULL && src == NULL)
 		return (0);
 	pdst = dst;
 	psrc = src;
