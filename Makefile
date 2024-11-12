@@ -34,17 +34,6 @@ C_FILES := \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-BONUS_C_FILES := \
-	ft_lstnew_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c
-
 OBJECT_FILES := \
     ft_isalpha.o \
     ft_isdigit.o \
@@ -81,17 +70,6 @@ OBJECT_FILES := \
 	ft_putendl_fd.o \
 	ft_putnbr_fd.o
 
-BONUS_O_FILES := \
-	ft_lstnew_bonus.o \
-	ft_lstadd_front_bonus.o \
-	ft_lstsize_bonus.o \
-	ft_lstlast_bonus.o \
-	ft_lstadd_back_bonus.o \
-	ft_lstdelone_bonus.o \
-	ft_lstclear_bonus.o \
-	ft_lstiter_bonus.o \
-	ft_lstmap_bonus.o
-
 NAME := libft.a
 CFLAGS := -Wall -Wextra -Werror
 
@@ -100,25 +78,21 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
-bonus: $(OBJECT_FILES) $(BONUS_O_FILES)
-	ar src $(NAME) $(OBJECT_FILES) $(BONUS_O_FILES)
-	touch bonus
-
 clean:
-	rm -f $(OBJECT_FILES) $(BONUS_O_FILES) bonus test main.c
+	rm -f $(OBJECT_FILES) test main.c
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-test: bonus main.c
+test: main.c
 	@echo =============================
 	gcc main.c -L. -lft -o test
 	@./test
 
 norm:
-	norminette $(C_FILES) $(BONUS_C_FILES) libft.h
+	norminette $(C_FILES) libft.h
 
 push: fclean norm
 	set -e
