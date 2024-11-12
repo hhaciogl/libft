@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:38:56 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/05 15:49:03 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:54:01 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	str_len = ft_strlen(s);
-	if (str_len == 0 || start >= str_len)
+	if (str_len == 0 || start >= str_len || len == 0)
 	{
-		new_substr = malloc((1) * sizeof(*new_substr));
+		new_substr = malloc((1) * sizeof(char));
 		if (new_substr == NULL)
 			return (NULL);
 		ft_strlcpy(new_substr, "", 1);
@@ -31,9 +31,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else
 	{
-		if (len >= str_len)
+		if (str_len - start < len)
 			len = str_len - start;
-		new_substr = malloc((len + 1) * sizeof(*new_substr));
+		new_substr = malloc((len + 1) * sizeof(char));
 		if (new_substr == NULL)
 			return (NULL);
 	}
