@@ -79,7 +79,7 @@ $(NAME): $(OBJECT_FILES)
 	ar src $(NAME) $(OBJECT_FILES)
 
 clean:
-	rm -f $(OBJECT_FILES) test main.c
+	rm -f $(OBJECT_FILES)
 
 fclean: clean
 	rm -f $(NAME)
@@ -94,11 +94,4 @@ test: main.c
 norm:
 	norminette $(C_FILES) libft.h
 
-push: fclean norm
-	set -e
-	git add .
-	git commit -m "$(M)"
-	git push origin
-	git push 42
-
-.PHONY: clean all re run fclean push norm
+.PHONY: clean all re run fclean norm
