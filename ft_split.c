@@ -6,7 +6,7 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:30:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/13 23:14:07 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/13 23:57:51 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ static	char	**clean_up(char ***out, size_t out_size)
 	return (NULL);
 }
 
-static size_t	get_size(char c, char const *s)
+static	char	**get_split_arr(char c, char const *s)
 {
 	size_t	out_size;
 	size_t	i;
+	char	**out;
 
 	i = 0;
 	out_size = 0;
@@ -42,21 +43,17 @@ static size_t	get_size(char c, char const *s)
 		if (s[i] != '\0')
 			i++;
 	}
-	return (out_size);
+	out = malloc((out_size + 1) * sizeof(char *));
+	return (out);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**add_words(char c, char const *s, char **out)
 {
-	size_t	word_start;
 	size_t	i;
 	size_t	out_size;
-	char	**out;
+	size_t	word_start;
 	char	*word;
 
-	out_size = get_size(c, s);
-	out = malloc((out_size + 1) * sizeof(char *));
-	if (out == NULL)
-		return (NULL);
 	i = 0;
 	out_size = 0;
 	while (s[i])
@@ -77,4 +74,14 @@ char	**ft_split(char const *s, char c)
 	}
 	out[out_size] = NULL;
 	return (out);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**out;
+
+	out = get_split_arr(c, s);
+	if (out == NULL)
+		return (NULL);
+	return (add_words(c, s, out));
 }
