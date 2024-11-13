@@ -86,7 +86,7 @@ fclean: clean
 
 re: fclean all
 
-test: main.c
+test: $(NAME) main.c
 	@echo =============================
 	gcc main.c -L. -lft -o test
 	@./test
