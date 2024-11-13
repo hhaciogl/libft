@@ -5,7 +5,7 @@ int main()
 {
 	char ** out;
 	int i = 0;
-	out = ft_split("Hello world", ' ');
+	out = ft_split("hello!", ' ');
 	if (out != NULL)
 	{
 		while (out[i])
@@ -15,5 +15,6 @@ int main()
 		}
 	}
 	printf("size: %i", i);
+	
 	return 0;
 }
