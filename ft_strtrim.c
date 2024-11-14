@@ -6,11 +6,20 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:38:35 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/10/28 17:47:57 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/14 21:01:12 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+static size_t	get_len(size_t start, size_t end)
+{
+	if (start > end)
+		return (0);
+	else
+		return (end - start);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -34,5 +43,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 		else
 			is_end_found = 1;
 	}
-	return (ft_substr(s1, start, end - start));
+	return (ft_substr(s1, start, get_len(start, end)));
 }
