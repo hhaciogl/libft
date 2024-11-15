@@ -6,28 +6,28 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:54:07 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/05 15:57:56 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/15 20:06:55 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strchr(const char *str, int chr)
+char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if ((char)str[i] == (char)chr)
+		if ((char)s[i] == (char)c)
 		{
-			return ((char *)&str[i]);
+			return ((char *)&s[i]);
 		}
 		i++;
 	}
-	if ((char)chr == '\0')
+	if ((char)c == '\0')
 	{
-		return ((char *)&str[i]);
+		return ((char *)&s[i]);
 	}
 	return (0);
 }
