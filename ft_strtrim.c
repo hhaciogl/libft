@@ -6,12 +6,11 @@
 /*   By: hhaciogl <hhaciogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:38:35 by hhaciogl          #+#    #+#             */
-/*   Updated: 2024/11/15 19:00:23 by hhaciogl         ###   ########.fr       */
+/*   Updated: 2024/11/15 20:25:15 by hhaciogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	get_len(size_t start, size_t end)
 {
